@@ -1,0 +1,114 @@
+
+<div id="content-full-speakers" class"sidebar-speakers-page-content" style="padding: 20pt 0 0 0">
+	<header>
+		<?php the_title( $title_before, $title_after ); ?>
+	</header>
+<?php
+	woo_post_meta();
+?> 
+
+
+<?php 
+/* // for ACF - no longer using
+$job_title = ( get_field('job_title') ? get_field('job_title') : get_post_meta($post_id, 'title', true) );
+*/
+?>
+
+<?php
+//Pulls in Excerpt 
+
+echo '<div class="excerptspeakerspage">'; 
+$my_excerpt = get_the_excerpt();
+if ( '' != $my_excerpt ) {
+  // Some string manipulation performed
+}
+echo $my_excerpt; // Outputs the processed value to the page 
+echo  '</div>' ; 
+?> 
+
+
+<div class="mymetavaluekey1" style="font: Helvetica, Arial, sans-serif font-size: 18px font-style: italic text-align: center;">
+<?php /* // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), '_my_meta_value_key', true) ;
+if( ! empty( $meta_values ) ) {
+  echo $meta_values;
+}*/
+?>
+</div>
+
+
+  <?php //commented out - pulls in job title
+  //echo '<div class="jobtitlespeakers">'; 
+  //the_field('job_title') ; // Job Title field 
+  //echo  '</div>' ; 
+  ?>
+
+
+<div class="mymetavaluekey1" style="font: Helvetica, Arial, sans-serif font-size: 18px font-style: italic text-align: center;">
+<?php // adds custom field DH created to frontend
+//$meta_values = get_post_meta( get_the_ID(), 'socialmedia_twitterbox', true) ;
+//if( ! empty( $meta_values ) ) {
+//  echo '<a href="';
+//  echo $meta_values;
+//  echo '">';
+//  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/twitter-icon-30.png"></a>';
+//}
+//?>
+</div>
+
+
+<div class="socialmedialinks">
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_twitterbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/twitter-icon-30.png"></a>';
+}
+?>
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_linkedinbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/linkedin-icon-30.png"></a>';
+}
+?>
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_customlinkbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/custom-link-30.png"></a>';
+}
+?>
+
+
+<?php /*
+if( get_post_meta( get_the_ID(), 'socialmedia_twitterbox', true) ): //adding Twitter Icon ?>
+	<a href="<?php get_post_meta( get_the_ID(), 'socialmedia_twitterbox', true); ?>"><img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/twitter-icon-30.png"></a>
+<?php endif; ?>
+
+<?php 
+if( get_post_meta( get_the_ID(), 'socialmedia_linkedinbox', true) ): //adding LinkedIn Icon ?>
+	<a href="<?php get_post_meta( get_the_ID(), 'socialmedia_linkedinbox', true); ?>"><img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/linkedin-icon-30.png"></a>
+<?php endif; ?>
+
+<?php 
+if( get_post_meta( 'socialmedia_customlinkbox', post_id) ): //adding custom URL Icon ?>
+	<a href="<?php get_post_meta( 'socialmedia_customlinkbox', post_id); ?>"><img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/custom-link-30.png"></a>
+<?php endif; ?> 
+
+
+<?php // if( get_field('custom_url') ): //adding custom URL Icon ?>
+	<a href="<?php the_field('xxxcustom_url'); ?>"><img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/custom-link-30.png"></a>
+<?php //endif; */ ?>
+
+</div>
+</div>

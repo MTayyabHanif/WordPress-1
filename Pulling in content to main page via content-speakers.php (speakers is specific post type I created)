@@ -112,3 +112,23 @@ if( get_post_meta( 'socialmedia_customlinkbox', post_id) ): //adding custom URL 
 
 </div>
 </div>
+
+
+<?php
+/*
+- pull in header
+- pulls in job title from ACF fields (no longer using)
+- pulls in excerpt
+- pulls in custom field I created as the new job title field
+- pulls in ACF field (no longer using) 
+- social media practice - twitter
+- social media links from new custom fields I created in functions.php
+- social media links in ACF (no longer using)
+*/
+?>
+
+
+
+
+
+

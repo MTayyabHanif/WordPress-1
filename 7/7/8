@@ -1,0 +1,1275 @@
+FUNCTIONS.PHP
+
+
+<?php
+
+/*-----------------------------------------------------------------------------------*/
+/* Start WooThemes Functions - Please refrain from editing this section */
+/*-----------------------------------------------------------------------------------*/
+
+// Set path to WooFramework and theme specific functions
+$functions_path = get_template_directory() . '/functions/';
+$includes_path = get_template_directory() . '/includes/';
+
+// Don't load alt stylesheet from WooFramework
+if ( ! function_exists( 'woo_output_alt_stylesheet' ) ) {
+    function woo_output_alt_stylesheet () {}
+}
+
+// Define the theme-specific key to be sent to PressTrends.
+define( 'WOO_PRESSTRENDS_THEMEKEY', 'tnla49pj66y028vef95h2oqhkir0tf3jr' );
+
+// WooFramework
+require_once ( $functions_path . 'admin-init.php' );    // Framework Init
+
+if ( get_option( 'woo_woo_tumblog_switch' ) == 'true' ) {
+    //Enable Tumblog Functionality and theme is upgraded
+    update_option( 'woo_needs_tumblog_upgrade', 'false' );
+    update_option( 'tumblog_woo_tumblog_upgraded', 'true' );
+    update_option( 'tumblog_woo_tumblog_upgraded_posts_done', 'true' );
+    require_once ( $functions_path . 'admin-tumblog-quickpress.php' );  // Tumblog Dashboard Functionality
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Load the theme-specific files, with support for overriding via a child theme.
+/*-----------------------------------------------------------------------------------*/
+
+$includes = array(
+				'includes/theme-options.php', 				// Options panel settings and custom settings
+				'includes/theme-functions.php', 			// Custom theme functions
+				'includes/theme-actions.php', 				// Theme actions & user defined hooks
+				'includes/theme-comments.php', 				// Custom comments/pingback loop
+				'includes/theme-js.php', 					// Load JavaScript via wp_enqueue_script
+				'includes/theme-plugin-integrations.php',	// Plugin integrations
+				'includes/sidebar-init.php', 				// Initialize widgetized areas
+				'includes/theme-widgets.php',				// Theme widgets
+				'includes/theme-advanced.php',				// Advanced Theme Functions
+				'includes/theme-shortcodes.php',	 		// Custom theme shortcodes
+				'includes/woo-layout/woo-layout.php',		// Layout Manager
+				'includes/woo-meta/woo-meta.php',			// Meta Manager
+				'includes/woo-hooks/woo-hooks.php'			// Hook Manager
+				);
+
+// Allow child themes/plugins to add widgets to be loaded.
+$includes = apply_filters( 'woo_includes', $includes );
+
+foreach ( $includes as $i ) {
+	locate_template( $i, true );
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* You can add custom functions below */
+/*-----------------------------------------------------------------------------------*/
+
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'canvas', get_template_directory_uri() . '/style.css' );
+
+}
+
+add_action( 'init', 'my_add_excerpts_to_pages' );
+function my_add_excerpts_to_pages() {
+     add_post_type_support( 'page', 'excerpt' );
+}
+
+// add tag support to pages
+function tags_support_all() {
+	register_taxonomy_for_object_type('post_tag', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+	if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
+
+// apply tags to attachments
+function wptp_add_tags_to_attachments() {
+    register_taxonomy_for_object_type( 'post_tag', 'attachment' );
+}
+add_action( 'init' , 'wptp_add_tags_to_attachments' );
+
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */ 
+function arphabet_widgets_init() {
+
+  register_sidebar( array(
+    'name'          => 'Home right sidebar',
+    'id'            => 'home_right_1',
+    'before_widget' => '<div>',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="rounded">',
+    'after_title'   => '</h2>',
+  ) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+?> 
+
+<?php
+// HIDE THE SLUG METABOX AND SLUG SCREEN OPTIONS
+   function hide_slug_options() {
+    global $post;
+    global $pagenow;
+    $hide_slugs = "<style type=\"text/css\">#slugdiv, [for=\"slugdiv-hide\"] { display: none; }</style>\n";
+    if (is_admin() && $pagenow=='post-new.php' OR $pagenow=='speakers.php') print($hide_slugs);
+   }
+   add_action( 'admin_head', 'hide_slug_options'  );
+
+?>
+
+
+
+
+<?php
+
+/*-----------------------------------------------------------------------------------*/
+/* Creates custom meta box */
+/*-----------------------------------------------------------------------------------*/
+/**
+ * Adds a box to the main column on the Post and Page edit screens.
+ */
+function myplugin_add_meta_box() {
+
+	$screens = array( 'speakers' );
+
+	foreach ( $screens as $screen ) {
+
+		add_meta_box(
+			'myplugin_sectionid',
+			__( 'Title', 'myplugin_textdomain' ),
+			'myplugin_meta_box_callback',
+			$screen
+		);
+	}
+}
+add_action( 'add_meta_boxes', 'myplugin_add_meta_box' );
+
+/**
+ * Prints the box content.
+ * 
+ * @param WP_Post $post The object for the current post/page.
+ */
+function myplugin_meta_box_callback( $post ) {
+
+	// Add a nonce field so we can check for it later.
+	wp_nonce_field( 'myplugin_meta_box', 'myplugin_meta_box_nonce' );
+
+	/*
+	 * Use get_post_meta() to retrieve an existing value
+	 * from the database and use the value for the form.
+	 */
+	$value = get_post_meta( $post->ID, '_my_meta_value_key', true );
+
+	echo '<label for="myplugin_new_field">';
+	_e( 'Example: CEO of XYZ Corp.', 'myplugin_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="' . esc_attr( $value ) . '" size="50" />';
+}
+
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function myplugin_save_meta_box_data( $post_id ) {
+
+	/*
+	 * We need to verify this came from our screen and with proper authorization,
+	 * because the save_post action can be triggered at other times.
+	 */
+
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['myplugin_meta_box_nonce'] ) ) {
+		return;
+	}
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['myplugin_meta_box_nonce'], 'myplugin_meta_box' ) ) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['speakers'] ) && 'page' == $_POST['speakers'] ) {
+
+		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+			return;
+		}
+
+	} else {
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+	}
+
+	/* OK, it's safe for us to save the data now. */
+	
+	// Make sure that it is set.
+	if ( ! isset( $_POST['myplugin_new_field'] ) ) {
+		return;
+	}
+
+	// Sanitize user input.
+	$my_data = sanitize_text_field( $_POST['myplugin_new_field'] );
+
+	// Update the meta field in the database.
+	update_post_meta( $post_id, '_my_meta_value_key', $my_data );
+}
+add_action( 'save_post', 'myplugin_save_meta_box_data' );
+
+/*-----------------------------------------------------------------------------------*/
+/* End of new custom field */
+/*-----------------------------------------------------------------------------------*/
+
+?>
+
+<?php
+
+/*-----------------------------------------------------------------------------------*/
+/* Creates social media custom meta box */
+/*-----------------------------------------------------------------------------------*/
+/**
+ * Adds a social media box to the main column on the 'Speakers' post edit screens.
+ */
+
+// Add the Meta Box
+function add_socialmedia_meta_box() {
+    add_meta_box(
+        'socialmedia_meta_box', // $id
+        'Social Media', // $title 
+        'show_socialmedia_meta_box', // $callback
+        'speakers', // $page
+        'normal', // $context
+        'high'); // $priority
+}
+add_action('add_meta_boxes', 'add_socialmedia_meta_box');
+
+// Field Array
+$prefix = 'socialmedia_';
+$socialmedia_meta_fields = array(
+    array(
+        'label'=> '<div class="socialmedia-prepend" style="background: #F4F4F4; border: #DFDFDF solid 1px; padding: 3px 7px 7px 7px; border-right-width: 0; border-radius: 3px 0 0 3px; font-size: 13px; line-height: 19px; height:20px; float:left;"><img src="/wp-content/uploads/2015/06/twitter-4096-black.png" width="15px" height="15px"></div>',
+        'desc'  => 'Add your <b style="color:#5ea9dd;">Twitter URL</b> here.',
+        'id'    => $prefix.'twitterbox',
+        'type'  => 'text'
+    ),
+            array(
+        'label'=> '<div class="socialmedia-prepend"><img src="/wp-content/uploads/2015/06/linkedin-4096-black.png" width="15px" height="15px"></div>',
+        'desc'  => 'Add your <b style="color:#1985BC;">LinkedIn URL</b> here.',
+        'id'    => $prefix.'linkedinbox',
+        'type'  => 'text'
+    ),
+        array(
+        'label'=> '<div class="socialmedia-prepend"><img src="/wp-content/uploads/2015/06/link-icon.png" width="15px" height="15px"></div>',
+        'desc'  => 'Add a <b style="color:#46629D;">Custom URL</b> here.',
+        'id'    => $prefix.'customlinkbox',
+        'type'  => 'text'
+    ),
+);
+
+// The Callback
+function show_socialmedia_meta_box() {
+global $socialmedia_meta_fields, $post;
+// Use nonce for verification
+echo '<input type="hidden" name="socialmedia_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
+     
+    // Begin the field table and loop
+    echo '<table class="form-table" style="width:0px;">';
+    foreach ($socialmedia_meta_fields as $field) {
+        // get value of this field if it exists for this post
+        $meta = get_post_meta($post->ID, $field['id'], true);
+        // begin a table row with
+        echo '<tr>
+                <th style="padding:16px 1px 20px 0px;"><label for="'.$field['id'].'">'.$field['label'].'</label></th>
+                <td style="padding-left:0px;">';
+                switch($field['type']) {
+                    // case items will go here
+                    // text
+case 'text':
+    echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" class"socialmedia-prepended" value="'.$meta.'" size="185" />
+        <br /><span class="description">'.$field['desc'].'</span>';
+break;
+
+
+// textarea
+case 'textarea':
+    echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4">'.$meta.'</textarea>
+        <br /><span class="description">'.$field['desc'].'</span>';
+break;
+
+// checkbox
+case 'checkbox':
+    echo '<input type="checkbox" name="'.$field['id'].'" id="'.$field['id'].'" ',$meta ? ' checked="checked"' : '','/>
+        <label for="'.$field['id'].'">'.$field['desc'].'</label>';
+break;
+                    // select
+case 'select':
+    echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
+    foreach ($field['options'] as $option) {
+        echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="'.$option['value'].'">'.$option['label'].'</option>';
+    }
+    echo '</select><br /><span class="description">'.$field['desc'].'</span>';
+break;
+                } //end switch
+        echo '</td></tr>';
+    } // end foreach
+    echo '</table>'; // end table
+}
+
+
+
+// Save the Data
+function save_socialmedia_meta($post_id) {
+    global $socialmedia_meta_fields;
+     
+    // verify nonce
+    if (!wp_verify_nonce($_POST['socialmedia_meta_box_nonce'], basename(__FILE__))) 
+        return $post_id;
+    // check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return $post_id;
+    // check permissions
+    if ('page' == $_POST['speakers']) {
+        if (!current_user_can('edit_page', $post_id))
+            return $post_id;
+        } elseif (!current_user_can('edit_post', $post_id)) {
+            return $post_id;
+    }
+     
+    // loop through fields and save the data
+    foreach ($socialmedia_meta_fields as $field) {
+        $old = get_post_meta($post_id, $field['id'], true);
+        $new = $_POST[$field['id']];
+        if ($new && $new != $old) {
+            update_post_meta($post_id, $field['id'], $new);
+        } elseif ('' == $new && $old) {
+            delete_post_meta($post_id, $field['id'], $old);
+        }
+    } // end foreach
+}
+add_action('save_post', 'save_socialmedia_meta');
+
+/*-----------------------------------------------------------------------------------*/
+/* End of new social media custom field */
+/*-----------------------------------------------------------------------------------*/
+
+?>
+
+
+
+<?php
+/*-----------------------------------------------------------------------------------*/
+/* Creates dropdown custom meta box */
+/*-----------------------------------------------------------------------------------*/
+/**
+ * Adds a dropdown box to the main column on the 'Speakers' edit screens.
+ */
+
+// Add the Meta Box 
+function add_select_meta_box() {
+    add_meta_box(
+        'select_meta_box', // $id
+        'Speaker Topic', // $title 
+        'show_select_meta_box', // $callback
+        'speakers', // $page
+        'normal', // $context
+        'high'); // $priority
+}
+add_action('add_meta_boxes', 'add_select_meta_box');
+// Field Array
+$prefix = 'topicdropdown_';
+$select_meta_fields = array(
+    array(
+        'label'=> 'Topic',
+        'desc'  => 'Select a topic for this speaker.',
+        'id'    => $prefix.'select',
+        'type'  => 'select',
+        'options' => array (
+            'one1' => array (
+                'label' => 'Artificial Intelligence',
+                'value' => 'aicustom'
+            ),
+            'two2' => array (
+                'label' => 'Manufacturing',
+                'value' => 'manufacturingcustom'
+            ),
+            'three3' => array (
+                'label' => '3D Printing',
+                'value' => '3dcustom'
+            )
+        )
+    )
+);
+// The Callback
+function show_select_meta_box() {
+global $select_meta_fields, $post;
+// Use nonce for verification
+echo '<input type="hidden" name="dropdown_select_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
+     
+    // Begin the field table and loop
+    echo '<table class="form-table">';
+    foreach ($select_meta_fields as $field) {
+        // get value of this field if it exists for this post
+        $meta = get_post_meta($post->ID, $field['id'], true);
+        // begin a table row with
+        echo '<tr>
+                <th><label for="'.$field['id'].'">'.$field['label'].'</label></th>
+                <td>';
+                switch($field['type']) {
+                    // case items will go here
+                    // select
+case 'select':
+    echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
+    foreach ($field['options'] as $option) {
+        echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="'.$option['value'].'">'.$option['label'].'</option>';
+    }
+    echo '</select><br /><span class="description">'.$field['desc'].'</span>';
+break;
+                } //end switch
+        echo '</td></tr>';
+    } // end foreach
+    echo '</table>'; // end table
+}
+// Save the Data
+function save_select_meta($post_id) {
+    global $select_meta_fields;
+     
+    // verify nonce
+    if (!wp_verify_nonce($_POST['dropdown_select_meta_box_nonce'], basename(__FILE__))) 
+        return $post_id;
+    // check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return $post_id;
+    // check permissions
+    if ('page' == $_POST['speakers']) {
+        if (!current_user_can('edit_page', $post_id))
+            return $post_id;
+        } elseif (!current_user_can('edit_post', $post_id)) {
+            return $post_id;
+    }
+     
+    // loop through fields and save the data
+    foreach ($select_meta_fields as $field) {
+        $old = get_post_meta($post_id, $field['id'], true);
+        $new = $_POST[$field['id']];
+        if ($new && $new != $old) {
+            update_post_meta($post_id, $field['id'], $new);
+        } elseif ('' == $new && $old) {
+            delete_post_meta($post_id, $field['id'], $old);
+        }
+    } // end foreach
+}
+add_action('save_post', 'save_select_meta');
+/*-----------------------------------------------------------------------------------*/
+/* End of new dropdown custom field */
+/*-----------------------------------------------------------------------------------*/
+
+?>
+
+
+<?php
+/*-----------------------------------------------------------------------------------*/
+/* Start of code to change excerpt */
+/*-----------------------------------------------------------------------------------*/
+
+add_action( 'admin_init',  'change_excerpt_box_title' );
+function change_excerpt_box_title() {
+    remove_meta_box( 'postexcerpt', 'speakers', 'side' );
+    add_meta_box('postexcerpt', __('Title'), 'post_excerpt_meta_box', 'speakers', 'normal', 'high');
+}
+/*-----------------------------------------------------------------------------------*/
+/* End of code to change excerpt */
+/*-----------------------------------------------------------------------------------*/
+?>
+
+
+<?php  
+
+/*-----------------------------------------------------------------------------------*/
+/* Don't add any code below here or the sky will fall down */
+/*-----------------------------------------------------------------------------------*/
+?>
+
+
+
+
+
+
+
+
+HEADER.PHP
+
+<?php
+/**
+ * Header Template
+ *
+ * Here we setup all logic and XHTML that is required for the header section of all screens.
+ *
+ * @package WooFramework
+ * @subpackage Template
+ */
+?><!DOCTYPE html>
+
+<html <?php language_attributes(); ?>>
+<head>
+<script src="//use.typekit.net/fef5pes.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
+<title><?php woo_title(); ?></title>
+<?php woo_meta(); ?>
+<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
+<?php wp_head(); ?>
+<?php woo_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php woo_top(); ?>
+<div id="wrapper">
+
+	<div id="inner-wrapper">
+
+	<?php woo_header_before(); ?>
+
+	<header id="header" class="col-full">
+
+		<?php woo_header_inside(); ?>
+
+	</header>
+	<?php woo_header_after(); ?>
+	
+	
+	
+	FOOTER.PHP
+	
+	
+	<?php
+/**
+ * Footer Template
+ *
+ * Here we setup all logic and XHTML that is required for the footer section of all screens.
+ *
+ * @package WooFramework
+ * @subpackage Template
+ */
+
+ global $woo_options;
+
+ woo_footer_top();
+ 	woo_footer_before();
+?>
+	<footer style="color:#fff;" id="footer" class="col-full" align="center">
+		
+		<p style="font-size: 1.5em;color:#6EA5DA"><a href="/">Home</a> | <a href="/about/">About</a> | <a href="/ticket-options/">Ticket Options</a> | <a 			href="/schedule/">Schedule</a> | <a href="/speakers/">Speakers</a> | <a href="/partners/">Partners</a> | <a href="/plan-your-trip/">Plan Your Trip</a><p>
+<br>
+
+		&copy; <?php echo date("Y") ?> <a style="color:#6ea5da;" href=" ">Closing the Gap.</a> All Rights Reserved. <a style="color:#6ea5da;" href=" "> Terms of Use.</a>		
+
+	</footer>
+
+	<?php woo_footer_after(); ?>
+
+	</div><!-- /#inner-wrapper -->
+
+</div><!-- /#wrapper -->
+
+<div class="fix"></div><!--/.fix-->
+
+<?php wp_footer(); ?>
+<?php woo_foot(); ?>
+</body>
+</html>
+
+
+
+
+
+
+ARCHIVE-SPEAKERS.PHP
+
+
+
+
+<?php
+/**
+ * Archive Template
+ *
+ * The archive template is a placeholder for archives that don't have a template file. 
+ * Ideally, all archives would be handled by a more appropriate template according to the
+ * current page context (for example, `tag.php` for a `post_tag` archive).
+ *
+ * @package WooFramework
+ * @subpackage Template
+ */
+
+ global $woo_options;
+ get_header();
+?>      
+    <!-- #content Starts -->
+    <?php woo_content_before(); ?>
+    <div id="content" class="col-full">
+    
+        <div id="main-sidebar-container">      
+            <!-- #main Starts -->
+            <?php woo_main_before(); ?>
+            <section id="main" class="col-left">
+                
+<?php
+    echo '<h1 class="title entry-title" id="title-entry-title-speakers">';
+    echo "Speakers";
+    echo '</h1>';
+?>
+
+
+</section>
+<!--body content-->
+<div class="backgroundspeakersarchive"> 
+<?php
+
+  // Speaker Archive Page Snidget - edit in WP back end
+  woo_loop_after();
+    echo '<div class="speakersarchivetextsnidget" style="padding: 20pt 20pt 20pt 20pt;">';
+    echo do_shortcode('[jwl-utmce-widget id=157]');
+    echo '</div>'
+?>  
+<br>
+
+
+<?php
+
+  // Justified Image Grid
+  woo_loop_after();
+    echo '<div class="speakersarchivejigsnidget" style="padding: 0 0 20pt 0;">';
+    echo do_shortcode('[jwl-utmce-widget id=161]');
+    echo '</div>'
+?>  
+</div>
+    </section><!-- /#main -->
+    <?php woo_main_after(); ?>
+
+    <?php get_sidebar(); ?>
+
+    
+    </div><!-- /#main-sidebar-container -->         
+
+    <?php get_sidebar( 'alt' ); ?>       
+
+    </div><!-- /#content -->
+    <?php woo_content_after(); ?>
+        
+<?php get_footer(); ?>
+
+
+
+
+
+
+
+	
+	CONTENT.PHP
+	
+	
+	<?php
+/**
+ * Default Content Template
+ *
+ * This template is the default content template. It is used to display the content of a
+ * template file, when no more specific content-*.php file is available.
+ *
+ * @package WooFramework
+ * @subpackage Template
+ */
+
+/**
+ * Settings for this template file.
+ *
+ * This is where the specify the HTML tags for the title.
+ * These options can be filtered via a child theme.
+ *
+ * @link http://codex.wordpress.org/Plugin_API#Filters
+ */
+
+$title_before = '<h1 class="title entry-title">';
+$title_after = '</h1>';
+
+if ( ! is_single() ) {
+	$title_before = $title_before . '<a href="' . get_permalink( get_the_ID() ) . '" rel="bookmark" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">';
+	$title_after = '</a>' . $title_after;
+}
+
+
+
+$page_link_args = apply_filters( 'woothemes_pagelinks_args', array( 'before' => '<div class="page-link">' . __( 'Pages:', 'woothemes' ), 'after' => '</div>' ) );
+
+woo_post_before();
+?>
+<article <?php post_class(); ?>>
+<?php
+	woo_post_inside_before();
+?>
+
+<div class="backgroundspeakers">
+
+<div id="content-full-speakers" class"sidebar-speakers-page-content" style="padding: 20pt 0 0 0">
+	<header>
+		<?php the_title( $title_before, $title_after ); ?>
+	</header>
+<?php
+	woo_post_meta();
+?> 
+
+
+<?php
+//Pulls in Excerpt 
+
+echo '<div class="excerptspeakerspage">'; 
+$my_excerpt = get_the_excerpt();
+if ( '' != $my_excerpt ) {
+  // Some string manipulation performed
+}
+echo $my_excerpt; // Outputs the processed value to the page 
+echo  '</div>' ; 
+?> 
+
+
+<div class="mymetavaluekey1" style="font: Helvetica, Arial, sans-serif font-size: 18px font-style: italic text-align: center;">
+<?php /* // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), '_my_meta_value_key', true) ;
+if( ! empty( $meta_values ) ) {
+  echo $meta_values;
+}*/
+?>
+</div>
+
+
+<div class="socialmedialinks">
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_twitterbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/twitter-icon-30.png"></a>';
+}
+?>
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_linkedinbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/linkedin-icon-30.png"></a>';
+}
+?>
+
+<?php // adds custom field DH created to frontend
+$meta_values = get_post_meta( get_the_ID(), 'socialmedia_customlinkbox', true) ;
+if( ! empty( $meta_values ) ) {
+  echo '<a href="';
+  echo $meta_values;
+  echo '" target="_blank">';
+  echo '<img src="http://greeneinst.wpengine.com/wp-content/uploads/2015/06/custom-link-30.png"></a>';
+}
+?>
+
+
+</div></div>
+
+<br><br>
+
+<div class="speakerspagemaincontent"> 
+
+	<section class="entry">
+	    <?php
+	    	the_content();
+	    	wp_link_pages( $page_link_args );
+	    ?>
+    
+<div class="topicdropdownbox">
+
+<?php // adds custom field DH created to frontend 
+$meta_values = get_post_meta( $post->ID, 'topicdropdown_select', true) ;
+if($meta_values == 'aicustom') {
+    echo __('<h4 class="topicdropdownheading">Artificial Intelligence</h4>');
+    echo __('<p class="topicdropdowntext">Option 1 refuigewudgaw gfsgfjsgajd geiwytfgjsbx,zNBckgweoe3rtfdsc b,a bckdsgcdsgcjdgsfjas
+      fdsfgdjsfhjds</p>');
+}
+else if($meta_values == 'manufacturingcustom') {
+    echo __('<h4 class="topicdropdownheading">Manufacturing</h4>');
+    echo __('<p class="topicdropdowntext">Option 2trgrefewduiewidhkas rheiwgfjsbdcksa fgdjsfj s irgesjfjasdbcjsafdu vjfdjs
+      hkdfgdjscjdsfdhgjds ghjdgsfjdsfjs</p>');
+}
+else if($meta_values== '3dcustom') {
+    echo __('<h4 class="topicdropdownheading">3D Printing</h4>');
+    echo __('<p class="topicdropdowntext">Option 3</p>');
+} 
+
+?>
+</div>
+
+</div>
+</div>
+
+	</section><!-- /.entry -->
+<?php
+	woo_post_inside_after();
+?>
+</article><!-- /.post -->
+<?php
+	woo_post_after();
+	comments_template();
+?>
+
+
+
+
+
+
+
+CUSTOM.CSS
+
+/*HOMEPAGE HERO ROUNDED CORNERS*/
+.fl-builder-content .fl-node-5583718c6c0f8 .fl-col-content {
+border-radius:100px 30px;
+}
+
+/*REMOVE STANDARD FEATURES FROM WORDPRESS*/
+.post-meta {
+display: none !important;
+}
+#comments {
+display: none !important;
+}
+#content {
+  padding:20px !important;
+}
+.page-id-66 #content {
+  padding:0 !important;
+}
+#respond {
+  display: none !important;
+}
+.post-entries {
+  display: none !important;
+}
+
+.speakers #woothemes-settings .postbox {
+  display: none !important;
+}
+
+
+/*FIXED CONTACT ICONS ON SIDE OF SITE*/
+.contact-icons {
+position:fixed;
+top:30%;
+right:95%;
+z-index:9999;
+padding-left:30px;
+}
+
+
+/*SPEAKER POST TYPE SETTINGS DH*/
+
+/* not currently being used - was used in old template style DH
+.featured-image-wrap {
+background-color:#5db4e1;
+padding:20px 5px;
+margin-bottom:20px;
+} */
+
+#nav-container {
+  margin: 0;
+}
+img.aligncenter {
+  margin-bottom: 0;
+}
+
+/*SPEAKER POST LAYOUT DH*/
+
+/* 'Speakers' title on archive page - makes consistent with other titles*/
+h1#title-entry-title-speakers {
+padding-bottom:10px;
+}
+
+/* styling for heading of select box value on front end - topic box */
+h4.topicdropdownheading {
+text-align:center;
+color:#003b6f;
+}
+
+p.topicdropdowntext {
+color:#003b6f;
+}
+
+/* styling for topic select box dropdown content on front end speakers individual pages DH */
+.topicdropdownbox {
+	padding:10pt 10pt 20pt 10pt;
+	-webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	-moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	border-radius: 10px;
+	background-color: #F2F2F2;
+	margin-right:0px; 
+	margin-left:0px;
+}
+/* mobile styling for topic select box dropdown content on front end speakers individual pages DH */
+@media screen and (max-width: 480px){
+    .topicdropdownbox {
+        margin:0;
+    }
+}
+
+/*social media links on speaker pages DH */
+.socialmedialinks {
+text-align:center;
+}
+
+/* speakers individual pages - h1 title at top styling DH */
+.speakers h1.title {
+text-align: center;
+}
+
+/* styling for snidget holding text on speakers archive page aka 'Speakers' DH */
+.speakersarchivetextsnidget {
+	padding:10pt 20pt 20pt 0;
+	margin-right:200px; 
+	margin-left:200px;
+	-webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	-moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	border-radius: 10px;
+	background-color: #F2F2F2;
+}
+/* mobile styling for snidget holding text on speakers archive page aka 'Speakers' DH */
+@media screen and (max-width: 480px){
+    .speakersarchivetextsnidget {
+        margin:0;
+    }
+}
+
+/* styling for text in snidget at top of speakers archive page aka 'Speakers' DH (class called in class of <p> in snidget)*/
+p.speakersarchivetextbox {
+color:#003b6f;
+}
+
+
+/* styling for individual buttons on speakers archive page aka 'Speakers' DH */
+div.jig-filterButton {
+background-color:#B2BEC9;
+text-decoration-color:#b2bec9;
+}
+
+/* styling for button container on speakers archive page aka 'Speakers' DH */
+div#jig1-L2filterButtons {
+text-align:center;
+}
+
+/* past speakers page entry styling (text editor content) DH
+.speakers .entry {
+float:right;
+width:50%; 
+padding:20pt 0 0 10pt;
+margin-right:225px;
+margin-left:100px;
+}*/
+
+/* past speakers page entry styling (text editor content) DH
+.speakers .entry {
+margin-right:200px;
+margin-left:200px;
+}*/
+
+/* front end main featured image styling on mobile DH */
+@media screen and (max-width: 480px){
+.speakers.wp-post-image {
+        width:150px;
+	height:150px;
+    }
+}
+
+/* styling on mobile for main text body (text editor content) DH */
+@media screen and (max-width: 480px){
+    .speakers .entry {
+        margin:0;
+    }
+}
+
+/* main text styling - specific to the text in the the body (text editor content) DH */
+.speakers .entry p {
+font-family:proxima-nova, Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: 400;
+}
+
+/* speaker page excerpt DH */
+.excerptspeakerspage {
+font:proxima-nova,Helvetica, Arial, sans-serif;
+font-size: 18px;
+font-style: italic;
+text-align: center;
+}
+
+/* styling for custom meta box I created to replace excerpt - not presently in use DH 
+.mymetavaluekey1 {
+font-family:proxima-nova,Helvetica, Arial, sans-serif;
+font-size: 18px;
+font-style: italic;
+text-align: center;
+} */
+
+/* speakers archive page background */
+.backgroundspeakersarchive {
+background-color:#fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/*NAVIGATION RULES*/
+.page-id-66 #nav-container #navigation ul#main-nav > li:first-child {
+display:none;
+}
+
+
+.top-navigation {
+float: right;
+}
+
+.entry img, img.thumbnail, #portfolio .group.portfolio-img img {
+  border: none;
+  background: none;
+  background: none;
+}
+
+#header {
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+}
+
+ul.nav li a {
+  transition: all .2s ease-in-out;
+}
+
+.fl-node-5583718c6c084 .fl-row-content-wrap {
+  background: repeating-linear-gradient( 15deg, #6ea5da , #6ea5da 50%, #003b6f 50%, #003b6f 100% );
+}
+
+.entry, .entry p {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.page-id-66  .entry, .entry p {
+  padding: 0px;
+  border-radius: 0px;
+}
+
+.title {
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  font-size: 3.5em !important;
+  margin-bottom: 0em !important;
+  padding-bottom: 10px;
+}
+
+#footer-widgets {
+  border-top: 0px solid;
+}
+
+
+
+/*TEMPORARY HOME PAGE CSS*/
+.page-id-360 #nav-container #navigation ul#main-nav > li:first-child {
+display:none;
+}
+
+.page-id-360 #main{
+display:none;
+}
+
+
+
+
+
+
+
+
+
+SINGLE-SPEAKERS.PHP
+
+
+
+<?php
+/**
+ * Single Post Template
+ *
+ * This template is the default page template. It is used to display content when someone is viewing a
+ * singular view of a post ('post' post_type).
+ * @link http://codex.wordpress.org/Post_Types#Post
+ *
+ * @package WooFramework
+ * @subpackage Template
+ */
+
+get_header();
+?> 
+
+<!-- featured image -->
+
+       
+    <!-- #content Starts -->
+
+
+  <?php woo_content_before(); ?>
+
+<div id="content" class="col-full">
+
+
+    <?php if ( has_post_thumbnail() ): // pulling featured image to top - changed to align left ('aligncenter' for centering)?>
+    <?php the_post_thumbnail( array(750,900), array( 'class' => 'alignleft' ) ); ?>
+    <?php endif; ?>
+
+    <div id="main-sidebar-container" style="margin: 0 0 0 450px; padding:0 0 0 10pt;">    
+
+    <?php woo_main_before(); ?>
+
+
+
+            <!-- #main Starts -->
+            <section id="main">      
+
+<!--body content-->  
+
+<?php
+  woo_loop_before();
+  
+  if (have_posts()) { $count = 0;
+    while (have_posts()) { the_post(); $count++;
+      
+      woo_get_template_part( 'content', get_post_type() ); // Get the post content template file, contextually.
+    }
+  }
+
+  ?>
+
+</div>
+
+<!--bottom of body-->
+
+
+<?php
+
+/*
+
+// commented out temporarily - not sure when this information will become availble. 
+//display 'topic' custom non-hierarchical tag taxonomy' (another way - similar result as below)
+//the_taxonomies( $topic ); 
+
+echo '<div class="speakerpagetags" style="padding:20pt 10pt 0 0; font-family:Helvetica, Arial, sans-serif;
+font-size: 16px; font-weight: 400;">';
+echo get_the_term_list( $post->id, 'topic', 'Tags: ', ', ', '' ); 
+echo  '</div>' ; 
+
+*/
+
+?>
+
+<?php woo_loop_after(); ?>     
+            </section><!-- /#main -->
+            <?php woo_main_after(); ?>
+
+            <?php get_sidebar(); ?>
+
+    </div><!-- /#main-sidebar-container -->         
+
+    <?php get_sidebar('alt'); ?>
+
+
+    </div><!-- /#content -->
+  <?php woo_content_after();
+echo do_shortcode('[jwl-utmce-widget id=205]'); // Justified Image Grid
+
+  ?>
+
+<?php get_footer(); 
+?>
+
+
+
+
+
+
+
+/*
+ Theme Name:   Closing the Gap
+ Theme URI:    http://www.woothemes.com/products/canvas/
+ Description:  Closing the Gap Child Theme for Greene Institute
+ Author:       Left Hook Digital
+ Author URI:   http://www.lefthookdigital.com/
+ Template:     canvas
+ Version:      0.1.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+@font-face {
+	font-family:'proxima-nova'; 
+	src: local("//use.typekit.net/fef5pes.js"), 
+	font-weight: normal;  
+}
+
+
+html, body, div, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, figure, nav, menu, entry  {
+font-family:proxima-nova !important;
+	}
+
+span {
+font-family:proxima-nova;
+  }
+
+
+.fa, a.button .woo-alert:before, a.comment-reply-link .woo-alert:before, #commentform #submit .woo-alert:before, .submit .woo-alert:before, input[type=submit] .woo-alert:before, input.button .woo-alert:before, button.button .woo-alert:before, #wrapper .woo-sc-button .woo-alert:before, a.button .woo-download:before, a.comment-reply-link .woo-download:before, #commentform #submit .woo-download:before, .submit .woo-download:before, input[type=submit] .woo-download:before, input.button .woo-download:before, button.button .woo-download:before, #wrapper .woo-sc-button .woo-download:before, a.button .woo-tick:before, a.comment-reply-link .woo-tick:before, #commentform #submit .woo-tick:before, .submit .woo-tick:before, input[type=submit] .woo-tick:before, input.button .woo-tick:before, button.button .woo-tick:before, #wrapper .woo-sc-button .woo-tick:before, a.button .woo-info:before, a.comment-reply-link .woo-info:before, #commentform #submit .woo-info:before, .submit .woo-info:before, input[type=submit] .woo-info:before, input.button .woo-info:before, button.button .woo-info:before, #wrapper .woo-sc-button .woo-info:before, a.button .woo-note:before, a.comment-reply-link .woo-note:before, #commentform #submit .woo-note:before, .submit .woo-note:before, input[type=submit] .woo-note:before, input.button .woo-note:before, button.button .woo-note:before, #wrapper .woo-sc-button .woo-note:before, body .woo-sc-box:before {
+   font-family:FontAwesome !important;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

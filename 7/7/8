@@ -1258,6 +1258,188 @@ font-family:proxima-nova;
 	}
 
 
+POSTTYPES.PHP
+
+
+
+<?php
+
+/**
+ * Plugin Name: Custom Post Types and Taxonomies
+ * Plugin URI: http://greeneinst.com
+ * Description: A simple plugin that adds custom post types and taxonomies
+ * Version: 0.1
+ * Author: Left Hook Digital
+ * Author URI: http://lefthookdigital.com
+ * License: GPL2
+ */
+
+/*  Copyright Left Hook Digital  (email : lefthookdigital@gmail.com)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as 
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+
+//Speakers
+function my_custom_posttypes () {
+    $labels = array(    
+        'name'               => 'Speakers',
+        'singular_name'      => 'Speaker',
+        'menu_name'          => 'Speakers',
+        'name_admin_bar'     => 'Speaker',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Speaker',
+        'new_item'           => 'New Speaker',
+        'edit_item'          => 'Edit Speaker',
+        'view_item'          => 'View Speaker',
+        'all_items'          => 'All Speakers',
+        'search_items'       => 'Search Speakers',
+        'parent_item_colon'  => 'Parent Speakers:',
+        'not_found'          => 'No speakers found.',
+        'not_found_in_trash' => 'No speakers found in Trash.',
+    );
+
+    $args = array( 
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true, 
+        'show_ui'            => true, 
+        'show_in_menu'       => true, 
+        'menu_position'      => 5, 
+        'menu_icon'          => 'dashicons-admin-users',
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'speakers' ), 
+        'capability_type'    => 'page',
+        'has_archive'        => true, 
+        'hierarchical'       => true, 
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt'), // 'custom-fields'        
+    );
+    register_post_type( 'speakers', $args );
+}
+add_action( 'init', 'my_custom_posttypes' );
+
+// Flush rewrite rules to add "review" as a permalink slug
+function my_rewrite_flush() {
+    my_custom_posttypes();
+    flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'my_rewrite_flush' );
+
+
+
+// Custom Taxonomies
+function my_custom_taxonomies() {
+    /*
+    // Type of Speaker (don't delete for reference)
+    $labels = array(
+        'name'              => 'Type of Speakers',
+        'singular_name'     => 'Type of Speaker',
+        'search_items'      => 'Search Types of Speakers',
+        'all_items'         => 'All Types of Speakers',
+        'parent_item'       => 'Parent Type of Speaker',
+        'parent_item_colon' => 'Parent Type of Speaker:',
+        'edit_item'         => 'Edit Type of Speaker',
+        'update_item'       => 'Update Type of Speaker',
+        'add_new_item'      => 'Add New Type of Speaker',
+        'new_item_name'     => 'New Type of Speaker',
+        'menu_name'         => 'Type of Speaker',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'speaker-type' ),
+    );
+
+    register_taxonomy( 'speaker-type', array( 'speakers' ), $args );
+
+*/
+
+
+    // Topic (hierarchical) (don't delete for reference)
+    $labels = array(
+        'name'              => 'Topic',
+        'singular_name'     => 'Topic',
+        'search_items'      => 'Search Topics',
+        'all_items'         => 'All Topics',
+        'parent_item'       => 'Parent Topic',
+        'parent_item_colon' => 'Parent Topic:',
+        'edit_item'         => 'Edit Topic',
+        'update_item'       => 'Update Topic',
+        'add_new_item'      => 'Add New Topic',
+        'new_item_name'     => 'New Topic',
+        'menu_name'         => 'Topic',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'topic' ),
+    );
+
+    register_taxonomy( 'topic', array( 'speakers', 'post' ), $args );
+
+/*
+    // Topic (non-hierarchical) Don't delete for reference - non-hierarchical (tag) example:
+    $labels = array(
+        'name'                       => 'Topics',
+        'singular_name'              => 'Topic',
+        'search_items'               => 'Search Topics',
+        'popular_items'              => 'Popular Topics',
+        'all_items'                  => 'All Topics',
+        'parent_item'                => null,
+        'parent_item_colon'          => null,
+        'edit_item'                  => 'Edit Topic',
+        'update_item'                => 'Update Topic',
+        'add_new_item'               => 'Add New Topic',
+        'new_item_name'              => 'New Topic Name',
+        'separate_items_with_commas' => 'Separate topics with commas',
+        'add_or_remove_items'        => 'Add or remove topics',
+        'choose_from_most_used'      => 'Choose from the most used topics',
+        'not_found'                  => 'No topics found.',
+        'menu_name'                  => 'Topics',
+    );
+
+    $args = array(
+        'hierarchical'          => false,
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'topic' ),
+    );
+
+    register_taxonomy( 'topic', array( 'speakers', 'post' ), $args );
+*/
+}
+
+
+add_action( 'init', 'my_custom_taxonomies' );
+
+
+?>
+
+
+
+
 
 
 

@@ -1,0 +1,174 @@
+Dropdown - PHP in functions.php, content-speakers.php, and CSS
+
+
+Functions.php
+
+<?php
+/*-----------------------------------------------------------------------------------*/
+/* Creates dropdown custom meta box */
+/*-----------------------------------------------------------------------------------*/
+/**
+ * Adds a dropdown box to the main column on the 'Speakers' edit screens.
+ */
+// Add the Meta Box 
+function add_select_meta_box() {
+    add_meta_box(
+        'select_meta_box', // $id
+        'Speaker Topic', // $title 
+        'show_select_meta_box', // $callback
+        'speakers', // $page
+        'normal', // $context
+        'high'); // $priority
+}
+add_action('add_meta_boxes', 'add_select_meta_box');
+// Field Array
+$prefix = 'topicdropdown_';
+$select_meta_fields = array(
+    array(
+        'label'=> 'Topic',
+        'desc'  => 'Select a topic for this speaker.',
+        'id'    => $prefix.'select',
+        'type'  => 'select',
+        'options' => array (
+            'one1' => array (
+                'label' => 'Artificial Intelligence',
+                'value' => 'aicustom'
+            ),
+            'two2' => array (
+                'label' => 'Manufacturing',
+                'value' => 'manufacturingcustom'
+            ),
+            'three3' => array (
+                'label' => '3D Printing',
+                'value' => '3dcustom'
+            )
+        )
+    )
+);
+// The Callback
+function show_select_meta_box() {
+global $select_meta_fields, $post;
+// Use nonce for verification
+echo '<input type="hidden" name="dropdown_select_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
+     
+    // Begin the field table and loop
+    echo '<table class="form-table">';
+    foreach ($select_meta_fields as $field) {
+        // get value of this field if it exists for this post
+        $meta = get_post_meta($post->ID, $field['id'], true);
+        // begin a table row with
+        echo '<tr>
+                <th><label for="'.$field['id'].'">'.$field['label'].'</label></th>
+                <td>';
+                switch($field['type']) {
+                    // case items will go here
+                    // select
+case 'select':
+    echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
+    foreach ($field['options'] as $option) {
+        echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="'.$option['value'].'">'.$option['label'].'</option>';
+    }
+    echo '</select><br /><span class="description">'.$field['desc'].'</span>';
+break;
+                } //end switch
+        echo '</td></tr>';
+    } // end foreach
+    echo '</table>'; // end table
+}
+// Save the Data
+function save_select_meta($post_id) {
+    global $select_meta_fields;
+     
+    // verify nonce
+    if (!wp_verify_nonce($_POST['dropdown_select_meta_box_nonce'], basename(__FILE__))) 
+        return $post_id;
+    // check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return $post_id;
+    // check permissions
+    if ('page' == $_POST['speakers']) {
+        if (!current_user_can('edit_page', $post_id))
+            return $post_id;
+        } elseif (!current_user_can('edit_post', $post_id)) {
+            return $post_id;
+    }
+     
+    // loop through fields and save the data
+    foreach ($select_meta_fields as $field) {
+        $old = get_post_meta($post_id, $field['id'], true);
+        $new = $_POST[$field['id']];
+        if ($new && $new != $old) {
+            update_post_meta($post_id, $field['id'], $new);
+        } elseif ('' == $new && $old) {
+            delete_post_meta($post_id, $field['id'], $old);
+        }
+    } // end foreach
+}
+add_action('save_post', 'save_select_meta');
+/*-----------------------------------------------------------------------------------*/
+/* End of new dropdown custom field */
+/*-----------------------------------------------------------------------------------*/
+?>
+
+
+
+Content-Speakers.php
+
+
+<div class="topicdropdownbox">
+
+<?php // adds custom field DH created to frontend 
+$meta_values = get_post_meta( $post->ID, 'topicdropdown_select', true) ;
+if($meta_values == 'aicustom') {
+    echo __('<h4 class="topicdropdownheading">Artificial Intelligence</h4>');
+    echo __('<p class="topicdropdowntext">Option 1 refuigewudgaw gfsgfjsgajd geiwytfgjsbx,zNBckgweoe3rtfdsc b,a bckdsgcdsgcjdgsfjas
+      fdsfgdjsfhjds</p>');
+}
+else if($meta_values == 'manufacturingcustom') {
+    echo __('<h4 class="topicdropdownheading">Manufacturing</h4>');
+    echo __('<p class="topicdropdowntext">Option 2trgrefewduiewidhkas rheiwgfjsbdcksa fgdjsfj s irgesjfjasdbcjsafdu vjfdjs
+      hkdfgdjscjdsfdhgjds ghjdgsfjdsfjs</p>');
+}
+else if($meta_values== '3dcustom') {
+    echo __('<h4 class="topicdropdownheading">3D Printing</h4>');
+    echo __('<p class="topicdropdowntext">Option 3</p>');
+} 
+
+?>
+</div>
+
+
+
+custom.css
+
+
+
+/* styling for heading of select box value on front end - topic box */
+h4.topicdropdownheading {
+text-align:center;
+color:#003b6f;
+}
+
+p.topicdropdowntext {
+color:#003b6f;
+}
+
+/* styling for topic select box dropdown content on front end speakers individual pages DH */
+.topicdropdownbox {
+	padding:10pt 10pt 20pt 10pt;
+	-webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	-moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	border-radius: 10px;
+	background-color: #F2F2F2;
+	margin-right:0px; 
+	margin-left:0px;
+}
+/* mobile styling for topic select box dropdown content on front end speakers individual pages DH */
+@media screen and (max-width: 480px){
+    .topicdropdownbox {
+        margin:0;
+    }
+}
+
+

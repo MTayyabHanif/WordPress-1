@@ -1,2 +1,76 @@
 /* ALL DELETED CSS ON XMED SITE */
 
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+/*BLUE HIGHLIGHT BOX ON PROGRAM TEST PAGE */ /*
+.blue-box {
+background-color: #9ed2ed;
+box-shadow: 0px 3px 7px #222;
+padding: 25px;
+margin-top: 10px;
+margin-bottom: 10px;
+border-radius: 5px;
+} */
+
+/*  PROGRAM TEST PAGE - NOT USING */
+.page-id-3454 #nav-container {
+margin-bottom: 0em;
+}
+
+.panel-grid-cell .widget h3 {
+border-bottom: 0px;
+}
+
+.page-id-3454 h3.widget-title {
+display: none !important;
+}
+
+/*SOLD OUT GRAPHIC TIGHT TO EDGE OF SCREEN ON HOME*/
+.page-id-71 .entry img, img.thumbnail {
+padding: 0px !important;
+}
+
+/*SLIDER ADJUSTMENT FOR APPLY PAGE*/
+.page-id-14 #nav-container {
+margin-bottom: 2.8em !important;
+}
+
+/*SLIDER ADJUSTMENT FOR REGISTRATION PAGE*/
+.page-id-656 #nav-container {
+margin-bottom: 2.8em !important;
+}
+
+/*SLIDER ADJUSTMENT FOR 2015 REGISTRATION PAGE*/
+.page-id-4570 #nav-container {
+margin-bottom: 39px !important;
+}
+.page-id-4570 #content {
+margin-top: 2em !important;
+}
+
+/*MENU ITEM BLUE FOR LIVE NOW*/
+#menu-item-4356 {
+background-color: #5db4e1;
+}
+
+
+
+
+
+

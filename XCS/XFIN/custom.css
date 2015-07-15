@@ -5,105 +5,12 @@
 .page-id-4240 #nosoldout {
 display:none;
 }
-.page-id-5602 #nosoldout {
-display:none;
-}
-.page-id-5696 #nosoldout {
-display:none;
-}
-.page-id-5714 #nosoldout {
-display:none;
-}
 
-.page-id-71 #nosoldout {
-display:none;
-}
-
-.page-id-6274 #nosoldout {
-display:none;
-}
-
-.page-id-6290 #nosoldout {
-display:none;
-}
-
-.page-id-902 #nosoldout {
-display:none;
-}
-.page-id-14 #nosoldout {
-display:none;
-}
-.page-id-4328 #nosoldout {
-display:none;
-}
-.page-id-6010 #nosoldout {
-display:none;
-}
-
-.page-id-5588 #nosoldout {
-display:none;
-}
-
-.page-id-4410 #nosoldout {
-display:none;
-}
-
-.page-id-3822 #nosoldout {
-display:none;
-}
-
-.page-id-3818 #nosoldout {
-display:none;
-}
-
-.page-id-2538 #nosoldout {
-display:none;
-}
-
-.page-id-5512 #nosoldout {
-display:none;
-}
-
-.page-id-1972 #nosoldout {
-display:none;
-}
-
-.page-id-831 #nosoldout {
-display:none;
-}
-
-.page-id-1206 #nosoldout {
-display:none;
-}
-
-.page-id-4528 #nosoldout {
-display:none;
-}
-
-.page-id-4530 #nosoldout {
-display:none;
-}
-
-.page-id-4573 #nosoldout {
-display:none;
-}
-
-
-.page-id-4576 #nosoldout {
-display:none;
-}
-
-.page-id-4579 #nosoldout {
-display:none;
-}
-
-.page-id-5233 #nosoldout {
-display:none;
-}
-
-.page-id-828 #nosoldout {
-display:none;
-}
+/* OTHER PAGES WITH THE SAME CODE: 
+same code for .page-id-5602, .page-id-5696, .page-id-5714, .page-id-71, .page-id-6274, .page-id-6290, .page-id-902, .page-id-14, 
+.page-id-4328, .page-id-6010, .page-id-5588, .page-id-4410, .page-id-3822, .page-id-3818, .page-id-2538, .page-id-5512, .page-id-1972
+.page-id-831, .page-id-1206, .page-id-4528, .page-id-4530, .page-id-4573, .page-id-4576, .page-id-4579, .page-id-5233, .page-id-828
+*/
 
 /*JUSTIFIED TEXT IN PAGES AND POSTS*/
 .entry p {

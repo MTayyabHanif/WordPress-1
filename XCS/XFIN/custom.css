@@ -1,3 +1,6 @@
+/*ALL CSS THAT HAS BEEN DELETED ON XFIN*/
+
+
 /*XCS Challenge (XCSC) PAGES - box at top, only to display on certain pages */
 .page-id-4240 #nosoldout {
 display:none;
@@ -106,6 +109,13 @@ display:none;
 .entry p {
 text-align:justify;
 }
+
+/*HEADER CLASS FOR PROGRAM PAGE*/
+.program-headings {
+text-transform: uppercase;
+font-family: "Clonoid", clonoid;
+}
+
 
 
 

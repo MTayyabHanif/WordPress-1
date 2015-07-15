@@ -150,7 +150,10 @@ clip-path: polygon(50% 25%, 50% 25%, 100% 0, 100% 100%, 50% 100%, 50% 100%, 0 10
 }
 
 
-
+/*REMOVE SPACING IN REV SLIDER*/
+.page-id-71 .entry ul {
+padding: 0 0 0 0px !important;
+}
 
 
 

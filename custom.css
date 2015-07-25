@@ -1,0 +1,434 @@
+/*
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it
+is easier to update the theme. Simply copy an existing style
+from style.css to this file, and modify it to your liking. */
+
+
+/* GLOBAL STYLES
+----------------
+Add styles beneath this line that you want to be applied across your entire site */
+
+/*HOMEPAGE HERO ROUNDED CORNERS - NOT PRESENTLY BEING USED */
+.fl-builder-content .fl-node-5583718c6c0f8 .fl-col-content {
+border-radius:100px 30px;
+}
+
+/*REMOVE STANDARD FEATURES FROM WORDPRESS*/
+.post-meta {
+display: none !important;
+}
+#comments {
+display: none !important;
+}
+#content {
+  padding:20px !important;
+}
+.page-id-66 #content {
+  padding:0 !important;
+}
+#respond {
+  display: none !important;
+}
+.post-entries {
+  display: none !important;
+}
+
+.speakers #woothemes-settings .postbox {
+  display: none !important;
+}
+
+
+#nav-container {
+  margin: 0;
+}
+
+/*SPEAKER POST TYPE SETTINGS DH*/
+
+/* not currently being used - was used in old template style DH
+.featured-image-wrap {
+background-color:#5db4e1;
+padding:20px 5px;
+margin-bottom:20px;
+} */
+
+/*SPEAKER POST LAYOUT DH*/
+
+/* 'Speakers' title on archive page - makes consistent with other titles*/
+h1#title-entry-title-speakers {
+padding-bottom:10px;
+}
+
+/* Speaker page images*/
+img.aligncenter {
+  margin-bottom: 0;
+}
+
+/*social media links on speaker pages DH */
+.socialmedialinks {
+text-align:center;
+}
+
+/* styling for snidget holding text on speakers archive page aka 'Speakers' DH */
+.speakersarchivetextsnidget {
+	padding:10pt 20pt 20pt 0;
+	margin-right:200px; 
+	margin-left:200px;
+	-webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	-moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.33);
+	border-radius: 10px;
+	background-color: #F2F2F2;
+}
+/* mobile styling for snidget holding text on speakers archive page aka 'Speakers' DH */
+@media screen and (max-width: 480px){
+    .speakersarchivetextsnidget {
+        margin:0;
+    }
+}
+
+/* styling for text in snidget at top of speakers archive page aka 'Speakers' DH (class called in class of <p> in snidget)*/
+p.speakersarchivetextbox {
+color:#003b6f;
+}
+
+/* styling for individual buttons on speakers archive page aka 'Speakers' DH */
+div.jig-filterButton {
+background-color:#B2BEC9;
+text-decoration-color:#b2bec9;
+}
+
+/* styling for button container on speakers archive page aka 'Speakers' DH */
+div#jig1-L2filterButtons {
+text-align:center;
+}
+
+/* past speakers page entry styling (text editor content) DH
+.speakers .entry {
+float:right;
+width:50%; 
+padding:20pt 0 0 10pt;
+margin-right:225px;
+margin-left:100px;
+}*/
+
+/* past speakers page entry styling (text editor content) DH
+.speakers .entry {
+margin-right:200px;
+margin-left:200px;
+}*/
+
+/* front end main featured image styling on mobile DH */
+@media screen and (max-width: 480px){
+.speakers.wp-post-image {
+        width:150px;
+	height:150px;
+    }
+}
+
+/* styling on mobile for main text body (text editor content) DH */
+@media screen and (max-width: 480px){
+    .speakers .entry {
+        margin:0;
+    }
+}
+
+/* main text styling - specific to the text in the the body (text editor content) DH */
+.speakers .entry p {
+font-family:proxima-nova, Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: 400;
+}
+
+/* speaker page excerpt DH */
+.excerptspeakerspage {
+font:proxima-nova,Helvetica, Arial, sans-serif;
+font-size: 18px;
+font-style: italic;
+text-align: center;
+}
+
+/* speakers archive page background */
+.backgroundspeakersarchive {
+background-color:#fff;
+  padding: 20px;
+  border-radius: 5px;
+-webkit-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+-moz-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+}
+
+/* speakers individual pages background */
+#speakerspagesmaincontent {
+-webkit-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+-moz-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+}
+
+/* speakers individual pages - h1 title at top styling DH */
+.speakers header h1.title {
+text-align: center;
+background-image: url("/wp-content/uploads/2015/07/bg.blue_.png");
+background-repeat: repeat;
+border-radius: 5px 5px 0 0;
+padding-top: 10px;
+width:1060px;
+margin:auto;
+}
+
+/* styling for speakers individual pages for mobile */
+@media screen and (max-width: 480px){
+div#tableonespeakers {
+max-width:275px;
+margin: 0 0 0 0;
+    }
+}
+
+/* styling for speakers individual pages for mobile 
+@media screen and (max-width: 480px){
+div#tabletwospeakers {
+max-width:300px;
+margin:0;
+padding:0;
+    }
+}*/
+
+/* speakers images resize on mobile */
+@media screen and (max-width: 480px){
+img.aligncenter {
+float:none;
+width:200px;
+height:200px;
+max-width:200px;
+max-height:200px;
+align:center;
+    }
+}
+
+/* speakers table resize on mobile  
+@media screen and (max-width: 480px){
+.speakerspagetable {
+max-width:250px;
+    }
+}*/
+
+/* NAVIGATION ON TOP OF HEADER (plan your trip, group sales, contact us) - FLOAT RIGHT */
+.top-navigation {
+float: right;
+}
+
+/* REMOVE STANDARD WP BACKGROUND FROM IMAGES */
+.entry img, img.thumbnail, #portfolio .group.portfolio-img img {
+  border: none;
+  background: none;
+  background: none;
+}
+
+/* MAIN NAVIGATION UNORDERED LIST, LIST ITEM'S LINK (A HREF) / MAIN NAV LINKS */
+ul.nav li a {
+  transition: all .2s ease-in-out;
+}
+
+/* HOME PAGE DIAGONAL STRIPE - BLUES */
+.fl-node-5583718c6c084 .fl-row-content-wrap {
+  background: repeating-linear-gradient( 15deg, #6ea5da , #6ea5da 50%, #003b6f 50%, #003b6f 100% );
+}
+
+/* MAIN BODY TEXT */
+.entry, .entry p {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align:left;
+}
+
+/* box shadow around main content - coupled with white background */
+.entry {
+-webkit-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+-moz-box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+box-shadow: 1px 7px 20px 5px rgba(120,120,120,0.57);
+}
+
+/* adds background image for all headers site wide */
+section#main header {
+    background-image: url("/wp-content/uploads/2015/07/bg.blue_.png");
+    background-repeat: repeat;
+    border-radius: 5px 5px 0 0;
+    padding-top: 10px;
+    margin-bottom:0;
+}
+
+/* header on speakers archive page */
+.speakers section#main header {
+    background-image: url("/wp-content/uploads/2015/07/bg.blue_.png");
+    background-repeat: repeat;
+    border-radius: 5px 5px 0 0;
+    padding-top: 10px;
+    margin:20px 79px 0 79px;
+}
+
+
+#header-container .background-image {
+    opacity: 0.8;
+}
+
+.speakers .speakerspagetable .entry {
+box-shadow:none;
+}
+
+/* HOME PAGE MAIN TEXT */
+.page-id-66  .entry, .entry p {
+  padding: 0px;
+  border-radius: 0px;
+}
+
+/* HEADING TEXT / TITLES */
+.title {
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  font-size: 3.5em !important;
+  margin-bottom: 0em !important;
+  padding-bottom: 10px;
+}
+
+/* WHEN NO FOOTER WIDGET, WHITE LINE APPEARS ACROSS BASE - THIS MAKES THAT DISAPPEAR 
+#footer-widgets {
+  border-top: 0px solid;
+}*/
+
+/* smaller header background transparent */
+div#header-container header#header {
+background: none;
+}
+
+/* Speakers page styling */
+div#tableonespeakers {
+width:400px; 
+max-width:100%;
+margin-left:1px; 
+margin-right:1px; 
+float:left !important ;
+}
+
+div#tabletwospeakers {
+  width:400px; 
+  margin-left:1px; 
+  margin-right:1px; 
+  float:right !important ; 
+  width:57%; 
+}
+
+/* mobile styling for individual speaker pages 
+@media screen and (max-width: 999px){
+    div#tableonespeakers {
+        float:none !important;
+        width:100%;
+    }
+
+@media screen and (max-width: 999px){
+    div#tabletwospeakers {
+        float:none !important;
+        width:100%;
+    }*/
+
+/* footer links (Home, About, etc.) */
+#footer a {
+color: #fff;
+}
+
+/*Apply Form */
+.page-id-66 .entry, .entry p {
+background:none;
+color:#000;
+}
+
+/*Centered Logo*/
+#logo {
+float: none;
+}
+
+#logo img {
+margin: 0 auto;
+display: block;
+}
+
+/* Main Site Background by TE*/
+
+#inner-wrapper {
+background-color:rgba(157, 194, 227, 0.05);
+background-position: center center; 
+}
+
+.DOP_ThumbnailScroller_ThumbContainer h5 {
+    color: white;
+}
+
+/* remove home page header */
+.page-id-360 section#main header {
+display:none;
+}
+
+#logo {
+float:left;
+}
+
+.ctg-header-dates {
+    float: left;
+    padding-left: 0;
+    padding-top: 10px;
+}
+
+.ctg-header-button {
+float:right;
+vertical-align:text-top;
+}
+
+/* TWO RIGHT HEADER BUTTONS AT TOP OF PAGE */
+.header-widget {
+float: right !important;
+width: 37% !important;
+clear: none !important;
+margin: 0 10% 0 0 !important;
+padding-top:20px;
+}
+
+/*HIDE HEADER WIDGET ON MOBILE*/
+@media only screen and (max-width: 979px) {
+.header-widget {display:none !important;}
+}
+
+/*.header-widget .widget {
+margin-top:2em;
+}*/
+
+
+
+/* DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+@media only screen and (min-width: 768px) {
+	
+/* Desktop styles go below this line */
+
+/* Main Site Background by TE*/
+
+#inner-wrapper {
+background-image:url(/wp-content/uploads/2015/07/puzzlefullbackgroundsm.png);
+background-color:rgba(157, 194, 227, 0.05);
+background-position: center center; 
+}
+
+.entry {
+min-height:52vh;
+}
+
+
+.backgroundspeakersarchive {
+min-height:52vh;
+}

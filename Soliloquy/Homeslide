@@ -54,3 +54,4 @@
         .homeslide .soliloquy-caption {
     display: none !important;
   }
+}

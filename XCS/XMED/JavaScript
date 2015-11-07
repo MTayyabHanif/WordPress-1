@@ -1,0 +1,30 @@
+// WordPress Wisepops script executed before the closing </body> tag:
+
+<div style="display:none;">
+<script type="text/javascript">
+(function() {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+s.src = document.location.protocol + '//wisepops.com/default/index/get-loader?user_id=6108';
+var s2 = document.getElementsByTagName('script')[0];s2.parentNode.insertBefore(s, s2);})();
+    </script>
+</div>
+
+// Footer Wisepops script executed before the opening #footer DIV tag:
+
+<script>
+var pageTitle = document.getElementsByTagName("title")[0].innerHTML;
+document.onload = function(){
+document.getElementsById("wisepop")[0].src = "https://singularityxcs.wufoo.com/embed/p1uexrpy0hqbkdf/def/field7=" + pageTitle;
+};
+</script>
+
+// Header Facebook script executed below the opening <body> tag.
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1389108674672035";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+

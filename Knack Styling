@@ -1,0 +1,151 @@
+
+/* -------------------------------- KNACK STYLING ----------------------------*/
+
+/* Knack Step 1 Conference Styling */
+  .page-id-670 div.kn-list-item-container {
+    width: 100% !important;
+  }
+
+/* White Opacity background color for Knack page (without bb) */
+  div#knackpage {
+    background-color: rgba(255,255,255, 0.9);
+  }
+
+  /* header styling for Knack page */
+.page-id-670 header h1.title {
+    background-image: url(https://exponential.singularityu.org/manufacturing/wp-content/uploads/sites/14/2015/08/Square_Texture_100x100.jpg);
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: contain;
+    color:white;
+    padding: 20px 20px 10px 20px;
+    margin-top: 20px;
+    margin-bottom:0px !important;
+}
+
+/* Adds padding around form */
+  .page-id-670 div#knackpage {
+    padding:20px !important;
+  }
+
+  /* Main body styling - not need unless using sidebar
+  .page-id-670 div#knack-dist_2 {
+    float:left;
+    width:60%;
+  } */
+
+/* Sidebar styling - not being used because of table 
+  .page-id-670 div.jwl-utmce-widget {
+    float:right;
+    width:30%;
+    padding-right:20px;
+  } */
+
+/* Removes the 'Conference 1' button from the top of the different forms */
+  .page-id-670 .kn-details-group.column-2, 
+  .page-id-670 div#view_498, 
+  .page-id-670 div#view_488,
+  .page-id-670 div#view_690 {
+    display:none !important;
+  }
+
+/* Styling for table forms (the First Name / Last Name tables specifically) */
+  .page-id-670 div#kn-input-field_43 table,
+  .page-id-670 div#kn-input-field_333 table,
+  .page-id-670 div#kn-input-field_336 table {
+    background:none !important;
+    border:none !important;
+    box-shadow:none !important;
+    width:auto;
+    margin-bottom:0!important;
+  }
+
+/* removes 'Invoice Items' from Final Step section */
+.page-id-670 div#view_633 .view-header h2 {
+display:none;
+}
+
+/* Changes padding on 'Invoice Details' */
+.page-id-670 div#view_631 {
+margin-bottom:0 !important;
+}
+
+/* Changes style of 'Please confirm...' on Final Steps page */
+.page-id-670 div#view_634 .view-header h2 {
+    font-family: open sans !important;
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Adds padding to the top of the Billing page (after removing button) */
+.page-id-670 div#view_689 ul.kn-form-group.clearfix.kn-form-group-1 
+div#kn-input-field_333 {
+  padding-top:20px !important;
+}
+
+/* Styling for button */
+.page-id-670 .entry div#view_497 table.kn-label-left {
+    cursor: pointer;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0 5%;
+    width: auto !important;
+    font-size: 1.05em;
+    line-height: 1.5em;
+    font-weight: bold;
+    -webkit-transition: background-color .15s ease-in-out;
+    -moz-transition: background-color .15s ease-in-out;
+    -o-transition: background-color .15s ease-in-out;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid #17427a;
+    background-color: #00396D;
+    text-transform: uppercase;
+  }
+
+/* Styling for text on button */
+.page-id-670 div#kn-scene_293 table.kn-label-left td.title a {
+  color:white;
+  font-size: 1.05em;
+  text-decoration: none;
+}
+
+/* Styling on h2 headers */
+.page-id-670 div#view_492 div.view-header h2,
+.page-id-670 div#view_493 div.view-header h2,
+.page-id-670 div#view_503 div.view-header h2 {
+    font-family: open sans !important;
+    font-size: 100%;
+    font-weight: normal !important;
+}
+
+/* styling for h2 and h3 elements */
+.page-id-670 div#view_494 div.view-header h2,
+.page-id-670 div#view_499 div.view-header h2,
+.page-id-670 div#view_631 div.view-header h2,
+.page-id-670 #view_636 li.kn-form-col h3 {
+    font-family: open sans !important;
+    font-size: 100%;
+    font-weight: bold !important;
+}
+
+/* Adds padding to top */
+.page-id-670 div#view_503 div.view-header h2,
+.page-id-670 div#view_493 div.view-header h2,
+.page-id-670 div#view_499 div.view-header h2 {
+  margin-top:20px !important;
+}
+
+/* Styling for 'Returning User' button */
+div#kn-scene_293 .kn-details.kn-view.view_497 .title {
+  padding: 9px 5px 1px 3px !important;
+}
+
+
+
+/* ----------------------------- END KNACK STYLING ---------------------------*/

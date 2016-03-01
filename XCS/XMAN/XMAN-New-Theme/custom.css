@@ -1,0 +1,484 @@
+/*
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it
+is easier to update the theme. Simply copy an existing style
+from style.css to this file, and modify it to your liking. */
+
+/* GLOBAL STYLES
+----------------
+Add styles beneath this line that you want to be applied across your entire site */
+
+/* APPLY LINK ON MAIN NAV - BACKGROUND COLOR (lighter blue) */
+#menu-item-68 {
+background-color: #CE6E18;
+}
+
+./* Apply Aviano Sans Typekit Font - using for BB */
+div.aviano {
+  font-family:aviano-sans!important;
+}
+
+/* NEWS PAGE - HIDE TOP POST FEED ? */
+.page-id-35 .fl-post-feed-header {
+display:none !important;
+}
+
+/* THIS STYLE CHANGES OPTIMIZELY LINK THAT IS BEING STYLED BY ANOTHER SETTING */
+.specialofferoptimizely {
+  color:#000 !important;
+  text-decoration:underline!important;
+}
+
+/* Used site wide for white background with 90% opacity */
+.xman-background {
+  background-color: rgba(255, 255, 255,.9);
+}
+
+.xman-background-margin {
+  margin-top:20px;
+}
+
+/* REMOVE CONTROLS */
+.post-id-13 .mejs-controls {
+  display:none !important;
+  visibility:hidden!important;
+}
+
+/*ON HOVER SCALE OF AN IMAGE*/
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+/*JUSTIFIED TEXT IN WIDGETS*/
+.widget p, .widget .textwidget {
+text-align: justify;
+}
+
+/*REMOVE STANDARD WHITE BORDER AROUND IMAGES*/
+.entry img, img.thumbnail {
+  background: none;
+  border: medium none;
+  padding: 5px;
+}
+
+/*HIDE METADATA*/
+.post-meta { display:none; }
+
+/*SITEWIDE BOLD LINKS*/
+a:link {
+font-weight: bold;
+}
+
+/*HIDE HEADER WIDGET ON MOBILE*/
+@media only screen and (max-width: 850px) {
+.header-widget {
+display:none !important;
+}
+}
+
+/*REMOVE MARGIN FROM BOTTOM OF MAIN NAV (PULL CONTENT TIGHT TO HEADER)*/
+#nav-container {
+margin: 0 0 0 0;
+}
+
+/*ADD MARGIN TO HEADER LOGO*/
+div#logo img {
+margin-left: 10%;
+width:75% !important;
+max-width:75%;
+}
+
+@media only screen and (max-width: 400px) {
+#logo {
+margin-left:0;
+}
+}
+
+/* OVERFLOW/HORIZONTAL SCROLL BAR HIDDEN / FOR HEADER STYLING */
+body.full-width #wrapper {
+overflow: hidden;
+}
+
+/* MAIN HEADER */
+#header{
+min-width:100%;
+background-position: left center;
+}
+
+/*FORCE FULL WIDTH*/
+@media only screen and (max-width: 768px) {
+.col-full, #wrapper {
+max-width: 100% !important;
+scroll: no;
+overflow:hidden;
+}
+}
+
+/*CORRECT MARGIN ON BODY FULL WIDTH*/
+html, body {
+margin-left: 0px;
+}
+
+/* Blockquotes " " for main text editor content on front end */
+.entry blockquote:before {
+color:#ffffff;
+}
+
+/* No margin or padding */
+.no-spacing {
+margin: 0px !important;
+padding: 0px !important;
+}
+
+/*TURN OFF COMMENTS SITE WIDE*/
+#comments {
+display: none;
+}
+
+/*POSTS NEXT AND PREVIOUS ENTRY TEXT- HIDE*/
+.post-entries {
+display:none;
+}
+
+/*TURN OFF POST TAGS FOR VIDEOS*/
+.post-utility {
+display: none !important;
+}
+
+/*REMOVE PREVIOUS POST FOR LAST VIDEO (WOULD HAVE STARTED FILTERING THROUGH POSTS WITH COPY)*/
+.postid-2243 .nav-prev{
+display: none !important;
+}
+
+/* For video on XMAN Landing Page */
+div.xmangifpopup {
+    background-size: cover !important;
+    opacity: 0.8;
+    border-radius:5px;
+}
+
+
+/* MAIN HEADER BOX SHADOW FOR MOBILE */
+@media only screen and (max-width: 768px) {
+#header-container {
+box-shadow: 0px 5px 20px #000;
+}}
+
+
+/* front page 'Recents Tweets' twitter widget styling */
+.page-id-13 .tp_recent_tweets, .page-id-352 .tp_recent_tweets, .page-id-359 .tp_recent_tweets, .page-id-362 .tp_recent_tweets {
+  color:white;
+}
+
+/* makes site background and header background fit to screen vs stretch out */
+body {
+background-size:cover !important ;
+}
+
+header#header {
+background-size:cover !important ;
+}
+
+/* REMOVE JUMPING WHEN NAV IS HIDDEN*/
+div#navhidden .page-id-907{
+display:none
+}
+
+/* ---------------------------- PRICING PAGE STYLING ---------------------------*/
+
+
+/*HIGHLIGHT ACTIVE PRICE COLUMN*/ 
+.fl-builder-content .fl-node-55c10660e7db8 .fl-pricing-table-column-1 {
+box-shadow: 0 3px 15px 5px #222 !important;
+}
+
+
+.fl-builder-content .fl-node-55c107ab19a28 .fl-pricing-table-column-1 {
+box-shadow: 0 3px 15px 5px #222 !important;
+}
+
+/*SOLD OUT STYLING FOR PRICING PAGE*/
+.fl-builder-content .fl-pricing-table-column-0 {
+  opacity: .5;
+}
+
+.fl-builder-content .fl-pricing-table-column-0 {
+    opacity:.5;
+}
+
+/* REMOVES BUTTON AT BOTTOM OF PRICING TABLE */
+.fl-builder-content .fl-node-55c10660e7db8 .fl-pricing-table-column-0 a.fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-55c107ab19a28 .fl-pricing-table-column-0 a.fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-55c10660e7db8 .fl-pricing-table-column-2 a.fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-55c107ab19a28 .fl-pricing-table-column-2 a.fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-55c10660e7db8 .fl-pricing-table-column-3 a.fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-55c107ab19a28 .fl-pricing-table-column-3 a.fl-button {
+  display:none;
+}
+
+/* --------------------------- END PRICING PAGE STYLING ------------------------*/
+
+/* -------------------------------- KNACK STYLING ----------------------------*/
+
+/* White Opacity background color for Knack page (without bb) */
+  div#knackpage {
+    background-color: rgba(255,255,255, 0.9);
+  }
+
+  /* header styling for Knack page */
+.page-id-670 header h1.title {
+    background-image: url(https://exponential.singularityu.org/manufacturing/wp-content/uploads/sites/14/2015/08/Square_Texture_100x100.jpg);
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: contain;
+    color:white;
+    padding: 20px 20px 10px 20px;
+    margin-top: 20px;
+    margin-bottom:0px !important;
+}
+
+  /* Main body styling - not need unless using sidebar
+  .page-id-670 div#knack-dist_2 {
+    float:left;
+    width:60%;
+  } */
+
+/* Sidebar styling - not being used because of table 
+  .page-id-670 div.jwl-utmce-widget {
+    float:right;
+    width:30%;
+    padding-right:20px;
+  } */
+
+/* Changes style of 'Please confirm...' on Final Steps page */
+.page-id-670 div#view_634 .view-header h2 {
+    font-family: open sans !important;
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* XMAN specific styling for button */
+.entry div#view_497 table.kn-label-left, input[type="submit"] {
+    background-color: #F7941E !important;
+  }
+
+/* styling for h2 and h3 elements */
+.page-id-670 div#view_492 div.view-header h2,
+.page-id-670 div#view_493 div.view-header h2,
+.page-id-670 div#view_494 div.view-header h2,
+.page-id-670 div#view_631 div.view-header h2,
+.page-id-670 div#view_499 div.view-header h2,
+.page-id-670 div#view_882 div.view-header h2,
+.page-id-670 #view_636 li.kn-form-col h3,
+.page-id-670 h3#refunds {
+    font-family: open sans !important;
+    font-size: 1.5em;
+    font-weight: bold !important;
+}
+
+
+
+/* ----------------------------- END KNACK STYLING ---------------------------*/
+
+
+/* ---------------------------- PRESENTERS PAGE STYLING ------------------------*/
+
+/*  DH PRESENTERS */
+
+div#tableonepresenters {
+width:400px; 
+max-width:43%;
+margin-left:20px; 
+margin-right:1px; 
+float:left !important ;
+}
+
+div#tabletwopresenters {
+	width:400px; 
+	margin-left:1px; 
+	margin-right:1px; 
+	float:right !important ; 
+	width:57%; 
+}
+
+/* Adds margin at top of presenters page */
+div.presenterspagetable {
+  margin-top:40px;
+}
+
+/* margin spacing between name/title/social links */
+.presenters h1.title {
+  margin:10px 20px 10px 20px;
+}
+
+/* styling for 'title' field on front end */
+.excerptpresenterspage {
+  margin-bottom:10px;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* mobile styling for individual presenter pages */
+@media screen and (max-width: 1100px){
+  div#tableonepresenters {
+    float:none !important;
+    text-align:center;
+    margin-right:auto;
+    width:auto;
+    height:auto;
+    max-width:90%;
+    }
+
+  div#tabletwopresenters {
+    float:none !important;
+    text-align:center;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    width:auto;
+    height:auto;
+    max-width:90%;
+    }
+
+  div.excerptpresenterspage {
+    width: 50%;
+    }
+}
+
+/* mobile styling for text at bottom of presenters page */
+@media screen and (max-width: 480px){
+  .individualspeakerstextbottom h2, .individualspeakerstextbottom p {
+    margin-left:auto;
+    margin-right:auto;
+    width:auto;
+    height:auto;
+    max-width:90%;
+    }
+}
+
+/* mobile styling for main text body (text editor content) DH */
+@media screen and (max-width: 480px){
+    .presenters .entry {
+        margin:0;
+    }
+}
+
+/* mobile styling featured image on presenters page */
+  div#tableonepresenters img.aligncenter {
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
+
+/* not being used currently I don't think - commenting out to be sure 
+.presenters div#content {
+  background-color:#f2f2f2;
+  -webkit-box-shadow: 0px 0px 19px 2px rgba(105,105,105,0.58);
+  -moz-box-shadow: 0px 0px 19px 2px rgba(105,105,105,0.58);
+  box-shadow: 0px 0px 19px 2px rgba(105,105,105,0.58);
+} */
+
+/* increases opacity to white background to presenters page */
+div.everythingpresenters {
+  background-color:rgba(255, 255, 255, 0.9) !important;
+  margin-top:20px;
+  border-right: 5px solid #F7941E;
+}
+
+/* styling for text box snidget at bottom of presenters page */
+div.shortcodeeverythingpresenters {
+  background-color:rgba(255, 255, 255, 0.9) !important;
+  margin-top:0px;
+  margin-bottom:20px;
+  border-right: 5px solid #F7941E;
+  border-bottom: 5px solid #F7941E;
+}
+
+/*social media links on presenter pages DH */
+.socialmedialinks {
+text-align:center;
+}
+
+/* presenter page excerpt DH */
+.excerptpresenterspage {
+font:Open-Sans,Helvetica, Arial, sans-serif;
+font-size: 18px;
+font-style: italic;
+text-align: center;
+}
+
+/* Adds permanent height for Twitter box on home page */
+.fl-node-5612ee09ca85e .fl-module-content.fl-node-content {
+    height: 434px !important;
+}
+
+/* ------------------------- END PRESENTERS PAGE STYLING ------------------------*/
+
+/* ------------------------------ PROGRAM PAGE STYLING --------------------------*/
+
+/* Style for Program page title text */
+h5.program-name-title-text {
+  font-size: 18px;
+  font-weight:bold;
+}
+
+/* Style for program page titles/headers */
+h3.program-titles {
+  text-transform: uppercase;
+  font-size:24px;
+  color:black;
+}
+
+@media only screen and (min-width: 480px) {
+.xman-body-padding {
+  padding: 0 40px 0 40px;
+}
+}
+
+/* ---------------------------- END PROGRAM PAGE STYLING ------------------------*/
+
+/*FOOTER Social Media styling*/
+div#synved_social_follow-2 {
+   text-align: center;
+}
+/*end of that*/
+
+/* DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+@media only screen and (min-width: 768px) {
+	
+/* Desktop styles go below this line */
+
+/* SU, CNBC, XFIN ON HEADER AT TOP OF PAGE */
+.header-widget {
+float: right !important;
+width: 30% !important;
+clear: none !important;
+margin: 0 10% 0 0 !important;
+}
+
+
+/* PROGRAM PAGE - ICONS ON LONG ROWS (for instance, 'Welcome from Will' announcement widget icon) */
+.picon {
+float:left;
+}
+
+}

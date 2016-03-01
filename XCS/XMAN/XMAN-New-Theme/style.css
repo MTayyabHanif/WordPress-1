@@ -1,0 +1,16 @@
+/*
+Theme Name: Manufacturing V1 Canvas Child
+Theme URI: http://lefthookdigital.com
+Description: Custom child theme for the Manufacturing site.
+Author: Left Hook Digital
+Author URI: http://www.lefthookdigital.com
+Template: canvas
+Version: 0.1.0
+*/
+
+
+h1, h2, h3, h4 {
+font-family:aviano-sans !important;
+font-weight:bold !important;
+
+	}

@@ -1,0 +1,556 @@
+/* SOLILOQUY STYLES
+---------------------
+  
+/* Styles for the plugin Soliloquy go below this line */
+/*----------------------------------------------------*/
+
+
+
+
+
+/* TRANSPARENT IMAGES ON ORANGE BACKGROUND HOMEPAGE SLIDER STYLES
+-----------------------------*/
+
+
+/* FIRST caption (currently 'Your slide here') styling */ 
+#soliloquy-container-301 .homeslide4 .soliloquy-caption .soliloquy-caption-inside h1.xman-caption4 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 32px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+#soliloquy-container-301 .homeslide4 .soliloquy-caption .soliloquy-caption-inside h2.xman-caption4 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 30px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+#soliloquy-container-301 .homeslide4 .soliloquy-caption .soliloquy-caption-inside {
+  background: none;
+  float:right;
+}
+
+/* homeslide button styling (links) */ 
+#soliloquy-container-301 .homeslide4 a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+}
+
+/* adjusts placement of captions */ 
+#soliloquy-container-301 .homeslide4 .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+}
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide' to .soliloquy-container' to make more general */ 
+#soliloquy-container-301 .homeslide4 .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 20px 160px 20px !important; 
+}
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+ #soliloquy-container-301 .homeslide4 .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides */ 
+  #soliloquy-container-301 .homeslide4 .soliloquy-control-nav,
+        #soliloquy-container-301 .homeslide4 .soliloquy-caption {
+    display: none !important;
+  }
+}
+
+
+/* TOPICS HOMEPAGE SLIDER STYLES - 
+-----------------------------*/
+
+/* FIRST caption (currently 'Your slide here') styling 
+#soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 40px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+    width:100%;
+    text-align:center;
+    margin:0px auto auto auto;
+    width:100%;
+    position:absolute;
+    top:-100px;
+}*/
+
+/* ----------- START OF TITLE CAPTION - RESPONSIVE TO MOBILE ------------ */
+
+/* FIRST caption styling */
+#soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 60px;
+    margin: auto auto 40px auto;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: capitalize;
+  }
+
+
+  @media (min-width: 930px) and (max-width: 1045px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:50px;
+    margin-top:10px;
+  }
+}
+
+  @media (min-width:860px) and (max-width: 930px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:40px;
+    margin-top:10px;
+  }
+}
+
+  @media (min-width:780px) and (max-width: 860px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:40px;
+    margin-top:10px;
+    margin-bottom:30px;
+  }
+}
+
+  @media (max-width: 780px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:30px;
+    margin-top:10px;
+  }
+}
+
+
+  @media (max-width: 690px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:30px;
+    margin-top:5px;
+  }
+}
+
+  @media (max-width: 690px) {
+        /** Mobile styling for header */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption3 {
+    font-size:25px;
+    margin-top:0px;
+  }
+}
+
+/* ----------- END OF TITLE CAPTION - RESPONSIVE TO MOBILE ------------ */
+
+
+/* ----------- START OF MIDDLE TEXT RIGHT ALIGNED - RESPONSIVE TO MOBILE ------------ */
+
+/* Second caption styling  */
+#soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h2.xman-caption3 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 20px;
+    margin: auto;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+    width:40%;
+    float:right;
+}
+
+  @media (min-width:890px) and (max-width: 1025px) {
+        /** Mobile styling for middle text */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h2.xman-caption3 {
+    font-size:17px!important;
+    margin:auto!important;
+  }
+}
+
+  @media (max-width: 890px) {
+        /** Mobile styling for middle text */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h2.xman-caption3 {
+    font-size:15px!important;
+    margin:auto!important;
+  }
+}
+
+  @media (max-width: 803px) {
+        /** Mobile styling for middle text */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h2.xman-caption3 {
+    font-size:13px!important;
+    margin:auto!important;
+  }
+}
+
+  @media (max-width: 730px) {
+        /** Mobile styling for middle text */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside h2.xman-caption3 {
+    font-size:11px!important;
+    margin:auto!important;
+  }
+}
+
+/* ----------- END OF MIDDLE TEXT RIGHT ALIGNED - RESPONSIVE TO MOBILE ------------ */
+
+#soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside {
+  background: none;
+  float:right;
+}
+
+/* homeslide button styling (links) */ 
+#soliloquy-container-301 .topicsslide a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+    float:right;
+    position:absolute;
+    bottom:0;
+    right:0;
+    margin:auto 10px 50px auto;
+}
+
+/* adjusts placement of captions */ 
+#soliloquy-container-301 .topicsslide .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+}
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide' to .soliloquy-container' to make more general */ 
+#soliloquy-container-301 .topicsslide .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 20px 160px 20px !important; 
+}
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+ #soliloquy-container-301 .topicsslide .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides */ 
+  #soliloquy-container-301 .topicsslide .soliloquy-control-nav,
+        #soliloquy-container-301 .topicsslide .soliloquy-caption {
+    display: none !important;
+  }
+}
+
+/* BLYTHE'S HOMEPAGE SLIDER STYLES
+-----------------------------*/
+
+
+/* FIRST caption (currently 'Your slide here') styling */ 
+#soliloquy-container-301 .homeslide3 .soliloquy-caption .soliloquy-caption-inside h1.xman-caption2 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 32px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+#soliloquy-container-301 .homeslide3 .soliloquy-caption .soliloquy-caption-inside h2.xman-caption2 {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 30px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+#soliloquy-container-301 .homeslide3 .soliloquy-caption .soliloquy-caption-inside {
+  background: none;
+  float:right;
+}
+
+/* homeslide button styling (links) */ 
+#soliloquy-container-301 .homeslide3 a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+}
+
+/* adjusts placement of captions */ 
+#soliloquy-container-301 .homeslide3 .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+}
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide' to .soliloquy-container' to make more general */ 
+#soliloquy-container-301 .homeslide3 .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 20px 160px 20px !important; 
+}
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+ #soliloquy-container-301 .homeslide3 .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides */ 
+  #soliloquy-container-301 .homeslide3 .soliloquy-control-nav,
+        #soliloquy-container-301 .homeslide3 .soliloquy-caption {
+    display: none !important;
+  }
+}
+
+
+
+/* FIRST BLANK HOMEPAGE SLIDER STYLES
+-----------------------------*/
+
+
+/* FIRST caption (currently 'Your slide here') styling */ 
+#soliloquy-container-301 .homeslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 60px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+/* homeslide button styling (links) */ 
+#soliloquy-container-301 .homeslide a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+}
+
+/* adjusts placement of captions */ 
+#soliloquy-container-301 .homeslide .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+}
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide' to .soliloquy-container' to make more general */ 
+#soliloquy-container-301 .homeslide .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 0 100px !important; 
+}
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+ #soliloquy-container-301 .homeslide .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides */ 
+  #soliloquy-container-301 .homeslide .soliloquy-control-nav,
+        #soliloquy-container-301 .homeslide .soliloquy-caption {
+    display: none !important;
+  }
+}
+
+
+/* SECOND BLANK HOMEPAGE SLIDER STYLES
+-----------------------------*/
+
+/* SECOND caption (currently 'Your slide here') styling */
+#soliloquy-container-301 .soliloquy-caption .soliloquy-caption-inside .xman-caption {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 60px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+/* homeslide button styling (links) */ 
+#soliloquy-container-301 .homeslide2 a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+}
+
+/* adjusts placement of captions */ 
+#soliloquy-container-301 .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+}
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide2' to .soliloquy-container' to make more general */
+#soliloquy-container-301 .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 0 100px !important; 
+}
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+#soliloquy-container-301 .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides */
+  #soliloquy-container-301 .soliloquy-control-nav,
+        #soliloquy-container-301 .soliloquy-caption {
+    display: none !important;
+  }
+}
+
+#soliloquy-container-301 a.xman-button {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+}
+
+/* FIRST HOMEPAGE SLIDER STYLES
+-----------------------------*/
+
+/* FIRST caption (currently 'Your slide here') styling 
+#soliloquy-container-301 .homeslide .soliloquy-caption .soliloquy-caption-inside h1.xman-caption {
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 60px;
+    margin: 0 0 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.25);
+    letter-spacing: normal;
+    text-transform: none;
+}*/
+
+/* homeslide button styling (links) 
+#soliloquy-container-301 .homeslide a {
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: bold!important;
+    text-transform: uppercase!important;
+    letter-spacing: 2px!important;
+    background-color: #f7941e!important;
+    border: 3px solid #fff!important;
+    padding: 20px 35px!important;
+    font-size: 20px!important;
+} */
+
+/* adjusts placement of captions 
+#soliloquy-container-301 .homeslide .soliloquy-caption  {
+  position: absolute !important;
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+} */
+ 
+/* also adjusts placement of captions */ 
+ /* change from '.homeslide' to .soliloquy-container' to make more general 
+#soliloquy-container-301 .homeslide .soliloquy-caption .soliloquy-caption-inside {
+  display: table-cell !important; 
+  text-align: center !important; 
+  vertical-align: middle !important; 
+  padding: 20px 0 100px !important; 
+} */
+ /*
+@media (min-width: 768px) and (max-width: 1024px) {
+ #soliloquy-container-301 .homeslide .soliloquy-caption {
+    bottom: 13px !important;
+  }
+ 
+}
+ 
+@media (max-width: 600px) {
+        /** Hide the caption and control nav for small devices since they can swipe slides *
+  #soliloquy-container-301 .homeslide .soliloquy-control-nav,
+        #soliloquy-container-301 .homeslide .soliloquy-caption {
+    display: none !important;
+  }
+}
+*/
+
+
+
+
+

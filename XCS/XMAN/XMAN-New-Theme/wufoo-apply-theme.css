@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.wufoo{
+ font-family: 'Open Sans';
+}
+
+header#header.info {
+  display:none;
+}
+ 
+div#container { 
+  text-align:justify; 
+}
+
+form li.first {
+display: none;
+}
+
+/* Proceed to Payment button */
+input#saveForm {
+  float:left;
+  width: 60%;
+  border: #444444 solid 3px;
+  cursor:pointer;
+  background-color: #f7941e;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  font-family: 'Open Sans';
+}
+
+/* Next Step Button */
+input#nextPageButton {
+  float:left;
+  width: 40%;
+  border: #444444 solid 3px;
+  cursor:pointer;
+  background-color: #f7941e;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  font-family: 'Open Sans';
+}
+
+input.text, input.search, textarea.textarea {
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+border: 1px solid #222;
+font-size:200%;
+}
+
+form li.invoice {
+display: none;
+}
+
+input.text:focus{
+border-color: #f7941e;
+box-shadow: 0 0 10px #f7941e;
+outline: none;
+}
+
+textarea.textarea:focus {
+border-color: #f7941e;
+box-shadow: 0 0 10px #f7941e;
+outline: none;
+}
+
+/* Turns red 'required' star orange */
+form span.req {
+  color:#f7941e !important;
+}
+
+
+
+

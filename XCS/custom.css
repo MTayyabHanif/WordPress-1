@@ -1,0 +1,120 @@
+/*
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it
+is easier to update the theme. Simply copy an existing style
+from style.css to this file, and modify it to your liking. */
+
+
+/* GLOBAL STYLES
+----------------
+Add styles beneath this line that you want to be applied across your entire site */
+
+/*REMOVE BORDER AND BACKGROUND COLOR FROM WP IMAGES*/
+.entry img {
+  height: auto;
+  padding: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/*THREE COLUMN LAYOUT FOR LOGOS IN THE WORDPRESS HEADER HOOK*/
+
+div#container {
+height: 35px; 
+line-height: 35px
+padding: 20 1 20 1;
+}
+
+.column-left{
+float: left; 
+width: 33%;
+padding: 20 1 20 1;
+}
+.column-right{
+float: right;
+padding: 20 1 20 1;
+}
+.column-center{
+display: inline-block; 
+width: 33%;
+margin: 0;
+padding: 20 1 20 1;
+}
+
+.header-logos{
+width: 100%;
+margin: 0 auto;
+}
+
+/*FANCY ANGLE CUT CLASSES*/
+.thisway {
+    -moz-transform:rotate(5deg);
+    -webkit-transform:rotate(5deg);
+}
+
+.thatway {
+    -moz-transform:rotate(-5deg);
+    -webkit-transform:rotate(-5deg);
+}
+
+.lightbg {
+background-image: radial-gradient(circle farthest-corner at center top, #FFFFFF 0%, #D8DFE9 100%);}
+
+.one-col #main {
+background-color: #ededed;
+border-radius: 0px 40px 0px 0px;
+}
+
+.page .title {
+font: bold 38px/1.1em 'Open Sans', arial, sans-serif;
+  font-family: clonoid;
+  text-transform: uppercase;
+  padding: 20px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(-45deg, rgba(237,151,75,1) 0%, rgba(237,151,75,0.2) 65%, rgba(237,151,75,0.14) 75%, rgba(237,237,237,0) 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(237,151,75,1)), color-stop(65%,rgba(237,151,75,0.2)), color-stop(75%,rgba(237,151,75,0.14)), color-stop(100%,rgba(237,237,237,0)));
+  background: -webkit-linear-gradient(-45deg, rgba(237,151,75,1) 0%,rgba(237,151,75,0.2) 65%,rgba(237,151,75,0.14) 75%,rgba(237,237,237,0) 100%);
+  background: -o-linear-gradient(-45deg, rgba(237,151,75,1) 0%,rgba(237,151,75,0.2) 65%,rgba(237,151,75,0.14) 75%,rgba(237,237,237,0) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(237,151,75,1) 0%,rgba(237,151,75,0.2) 65%,rgba(237,151,75,0.14) 75%,rgba(237,237,237,0) 100%);
+  background: linear-gradient(135deg, rgba(237,151,75,1) 0%,rgba(237,151,75,0.2) 65%,rgba(237,151,75,0.14) 75%,rgba(237,237,237,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed974b', endColorstr='#00ededed',GradientType=1 );
+}
+
+}
+
+body {
+background-image: url("http://exponential.singularityu.org/manufacturing/wp-content/uploads/sites/13/2015/03/skyline-thin.png");
+background-repeat: no-repeat !important;
+background-position: bottom center !important;
+background-attachment: fixed !important;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+/*REMOVE YOU ARE HERE TEXT FROM BREADCRUMBS*/
+.breadcrumb-title {
+display: none;
+}
+
+.breadcrumbs {
+  margin-left: 1.5em;
+  margin-bottom: 0em;
+}
+
+
+
+/* DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+@media only screen and (min-width: 768px) {
+	/* Desktop styles go below this line */
+
+
+	
+}

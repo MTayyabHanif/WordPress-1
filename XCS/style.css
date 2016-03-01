@@ -1,0 +1,11 @@
+/*
+Theme Name: Manufacturing Canvas Child
+Theme URI: http://elliottrand.net
+Description: Custom child theme for the XCS Landing Page.
+Author: Dylan Manz
+Author URI: http://www.dylanmanz.com
+Template: canvas
+Version: 0.1.0
+*/
+
+@import url("../canvas/style.css");

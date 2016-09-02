@@ -1,0 +1,1122 @@
+/*
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it
+is easier to update the theme. Simply copy an existing style
+from style.css to this file, and modify it to your liking. */
+
+
+/* GLOBAL STYLES
+----------------
+Add styles beneath this line that you want to be applied across your entire site */
+
+/* NEWS PAGE - HIDE TOP POST FEED ? */
+.page-id-188 .fl-post-feed-header {
+display:none !important;
+}
+
+/*ON HOVER SCALE OF AN IMAGE*/
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+/*JUSTIFIED TEXT IN WIDGETS*/
+.widget p, .widget .textwidget {
+text-align: justify;
+}
+
+/*MAKES BACKGROUND FIT TO BIGGER SCREENS 
+body {
+    background-size: 100% !important;
+}*/
+
+/*REMOVE STANDARD WHITE BORDER AROUND IMAGES*/
+.entry img, img.thumbnail {
+  background: none;
+  border: medium none;
+  padding: 5px;
+}
+
+/*ACORDION PLUS SIGNS WHITE*/
+
+.fa-plus:before {
+    color: #ffffff;
+}
+
+/*HIDE METADATA*/
+.post-meta { display:none; }
+
+/*SITEWIDE BOLD LINKS*/
+a:link {
+font-weight: bold;
+}
+
+/*HIDE HEADER WIDGET ON MOBILE*/
+@media only screen and (max-width: 768px) {
+.header-widget {
+  display:none !important;
+}
+div#logo {
+  width:25%;
+  max-width:25% !important;
+}
+}
+
+/*REMOVE MARGIN FROM BOTTOM OF MAIN NAV (PULL CONTENT TIGHT TO HEADER)*/
+#nav-container {
+margin: 0 0 0 0;
+}
+
+/* OVERFLOW/HORIZONTAL SCROLL BAR HIDDEN / FOR HEADER STYLING */
+body.full-width #wrapper {
+overflow: hidden;
+}
+
+/* MAIN HEADER */
+#header{
+min-width:100%;
+background-position: left center;
+}
+
+/*FORCE FULL WIDTH*/
+@media only screen and (max-width: 768px) {
+.col-full, #wrapper {
+max-width: 100% !important;
+scroll: no;
+overflow:hidden;
+}
+}
+
+/*CORRECT MARGIN ON BODY FULL WIDTH*/
+html, body {
+margin-left: 0px;
+}
+
+/* Blockquotes " " for main text editor content on front end */
+.entry blockquote:before {
+color:#ffffff;
+}
+
+/* Class for no margin or padding */
+.no-spacing {
+margin: 0px !important;
+padding: 0px !important;
+}
+
+/*TURN OFF COMMENTS SITE WIDE*/
+#comments {
+display: none;
+}
+
+/*REMOVE TOP PADDING FROM FOOTER*/
+#content {
+  padding:0px 0px 0px 0px;
+}
+
+/*FOOTER BACKGROUND/CONTAINER COLOR*/
+div#footer-container {
+  background-color:#222222;
+}
+
+/*POSTS NEXT AND PREVIOUS ENTRY TEXT- HIDE*/
+.post-entries {
+display:none;
+}
+
+/*TURN OFF POST TAGS FOR VIDEOS*/
+.post-utility {
+display: none !important;
+}
+
+/* MAIN HEADER BOX SHADOW FOR MOBILE */
+@media only screen and (max-width: 768px) {
+#header-container {
+box-shadow: 0px 5px 20px #000;
+}}
+
+/*changes font of 'Redirecting...' from Wufoo redirects */
+  div#embed {
+ font-family: 'Open Sans';
+  }
+
+/* makes site background and header background fit to screen vs stretch out 
+body {
+background-size:cover !important ;
+}*/
+
+/* Makes background image cover entire header space - not being used presently 
+header#header {
+background-size:cover !important ;
+}*/
+
+/* Removes white bar at top of nav bar */
+div#navhidden {
+  display:none !important;
+}
+
+/* Center aligns the social media widget in the footer */
+div#synved_social_follow-2 {
+  text-align:center !important;
+}
+
+/* Removes individual page headings */
+h1.title.entry-title {
+  display:none;
+}
+
+/* About page top and bottom images */
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-node-56bb4df822aa0 .fl-row-content-wrap,
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-row-bg-overlay.fl-node-56bb4d4850a47 .fl-row-content-wrap,
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-row-bg-overlay.fl-node-56bb5bcbe3897 .fl-row-content-wrap {
+    height: 7em;
+} 
+
+/* ------------------------- FRONT PAGE STYLING --------------------*/
+
+/* Style for the apply buttons on the front page */
+.fl-builder-content .fl-node-56b3a026c6f61 a.fl-button, 
+.fl-builder-content .fl-node-56b3a026c6f61 a.fl-button:visited,
+.fl-builder-content .fl-node-56ba00c13d24b a.fl-button, 
+.fl-builder-content .fl-node-56ba00c13d24b a.fl-button:visited,
+.fl-builder-content .fl-node-56ba00cc4d8c4 a.fl-button, 
+.fl-builder-content .fl-node-56ba00cc4d8c4 a.fl-button:visited,
+.fl-builder-content .fl-node-56bcb5a90b388 a.fl-button, 
+.fl-builder-content .fl-node-56bcb5a90b388 a.fl-button:visited,
+.fl-builder-content .fl-node-56bcb5c551d75 a.fl-button, 
+.fl-builder-content .fl-node-56bcb5c551d75 a.fl-button:visited,
+.fl-builder-content .fl-node-56bcb5a90b512 a.fl-button, 
+.fl-builder-content .fl-node-56bcb5a90b512 a.fl-button:visited {
+  border: 1px solid #cccccc !important ;
+}
+
+/* Sets height for boxes on main page */
+  .fl-col-group.fl-node-56b396887b076.fl-col-group-equal-height {
+    height: 300px;
+  }
+
+/* Styles headers for news posts on front page */
+.page-id-37 .fl-post-feed-title a {
+    text-decoration: none;
+}
+/* Styles headers ^ on hover */
+.page-id-37 .fl-post-feed-title a:hover {
+    text-decoration: none;
+    color:rgba(98, 182, 226, .85);
+}
+
+/* Adds border around buttons on home page slider */
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-1 a.fl-button, 
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-1 a.fl-button:visited,
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-3 a.fl-button, 
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-3 a.fl-button:visited,
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-2 a.fl-button, 
+.fl-builder-content .fl-node-56b3976f9c1fc .fl-slide-2 a.fl-button:visited {
+    margin-left: 5% !important;
+    border: 1px solid #222222 !important;
+}
+
+
+/* Button text spacing on front page button */
+.page-id-37 span.fl-button-text {
+    letter-spacing: 2px;
+}
+
+/* Adds overlay for slider images without link */
+.fl-slide-bg-photo {
+    background-color: rgb(252,252,252);
+    opacity: 0.8;
+}
+
+
+/*--- Start media queries for front page slider ---*/
+
+/* Slider content size */
+.fl-node-56b3976f9c1fc .fl-slide {
+    height: 335px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+.fl-node-56b3976f9c1fc .fl-slide {
+    height: 310px !important;
+}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+.fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content-wrap {
+    width: 60% !important;
+    margin-top:20px !important;
+    margin-left:0 !important;
+}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+.fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content-wrap {
+    width: 70% !important;
+    margin-top:20px;
+    margin-left:0;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+.fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content-wrap,  
+.fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content-wrap {
+    width: 95% !important;
+}
+}
+/*
+@media only screen and (min-width: 768px) and (max-width: 1600px) {
+  .fl-node-56b3976f9c1fc .fl-slide-0 {
+    height: 322px;
+}
+}*/
+
+/* Old media queries for middle box with natural 400 left/right */
+/*@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 175px !important;
+    margin-left: 175px !important;
+}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 125px !important;
+    margin-left: 125px !important;
+}
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1200px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 200px !important;
+    margin-left: 200px !important;
+}
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1100px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 150px !important;
+    margin-left: 150px !important;
+}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1000px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 100px !important;
+    margin-left: 100px !important;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+  .fl-node-56b3976f9c1fc .fl-slide-1 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-2 .fl-slide-content,
+  .fl-node-56b3976f9c1fc .fl-slide-3 .fl-slide-content {
+    margin-right: 50px !important;
+    margin-left: 50px !important;
+}
+}*/
+
+/* Slider text */
+@media only screen and (min-width: 1300px) {
+  span.slider-header-text {
+    padding-left:45px !important;
+    color:black;
+}
+}
+
+
+/*---- End media queries for front page slider ----*/
+
+/* Styling for mobile */
+@media only screen and (max-width: 768px) {
+/*-- Start styling for header images on mobile --*/
+  .fl-module.fl-module-heading.fl-node-56ba0ab23a91a span.fl-heading-text,
+  .fl-module.fl-module-heading.fl-node-56ba084a0b5e1 span.fl-heading-text {
+    font-size: 30px;
+}
+.fl-module.fl-module-heading.fl-node-56ba0ab23a91a .fl-module-content.fl-node-content,
+.fl-module.fl-module-heading.fl-node-56ba084a0b5e1 .fl-module-content.fl-node-content {
+    margin: 0;
+}
+.fl-node-56ba06d4c8c1a .fl-row-content-wrap {
+    background-position: right top;
+}
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-row-bg-overlay.fl-node-56ba06d4c8c1a .fl-row-content-wrap,
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-row-bg-overlay.fl-node-56ba0ab238807 .fl-row-content-wrap {
+  padding:0;
+}
+/*--- End styling for header images on mobile ---*/
+/*---- Start styling for boxes on mobile ----*/
+.fl-col-group.fl-node-56bcb5a90a77b {
+  margin: 0 30px 0 30px;
+}
+.fl-row.fl-row-fixed-width.fl-row-bg-none.fl-visible-mobile.fl-node-56bcb5a8caca6 {
+  background-color:white;
+}
+/*----- End styling for boxes on mobile -----*/
+}
+
+/*-- Font resize on mobile --
+@media only screen and (max-width: 480px) {
+.fl-module.fl-module-rich-text.fl-node-56bcb2c4cbd1b .fl-module-content {
+    margin: 10px;
+}
+.fl-row.fl-row-full-width.fl-row-bg-photo.fl-visible-mobile.fl-node-56bcb29619eda .fl-row-content-wrap {
+  padding-bottom: 10px !important;
+}
+}*/
+
+/*-- Start font resize on small devices --*/
+@media only screen and (min-width:480px) and (max-width: 786px) {
+.header-text-across-site .fl-module-content.fl-node-content {
+    margin: 0 !important;
+}
+}
+@media only screen and (min-width:480px) and (max-width: 786px) {
+.header-text-across-site .fl-heading-text,
+.fl-module.fl-module-content-slider.fl-visible-desktop-medium.fl-node-56b3976f9c1fc .fl-slide.fl-slide-0.fl-slide-text-center h1.fl-slide-title span {
+  font-size:30px !important;
+}
+}
+@media only screen and (max-width: 480px) {
+.header-text-across-site .fl-heading-text,
+.fl-module.fl-module-content-slider.fl-visible-desktop-medium.fl-node-56b3976f9c1fc .fl-slide.fl-slide-0.fl-slide-text-center h1.fl-slide-title span {
+  font-size:20px !important;
+}
+.header-text-across-site .fl-module-content.fl-node-content {
+    margin: 0 !important;
+}
+}
+/*-- End font resize on small devices --*/
+
+
+/*-- Start styling for news on small devices --*/
+@media only screen and (min-width:480px) and (max-width: 768px) {
+.fl-col.fl-col-small.fl-node-56b8fa16eb1c5 .fl-module-content.fl-node-content {
+    margin: 20px 0 0 0;
+}
+.fl-post-feed-post.fl-post-feed-image-beside.fl-post-feed-has-image img.attachment-medium.size-medium.wp-post-image {
+    float: left;
+    width: 30% !important;
+}
+.fl-post-feed-content {
+  float:right;
+  width:70% !important;
+}
+.fl-post-feed-post.fl-post-feed-image-beside {
+  max-width:80% !important;
+}
+.fl-col-small {
+    max-width: 100% !important;
+}
+.fl-post-feed-image-beside.fl-post-feed-has-image .fl-post-feed-content {
+  padding-left:20px;
+}
+.fl-builder-pagination {
+  padding:0 !important;
+}
+/*---- End styling for news on small devices ----*/
+}
+/*-- Start styling for news on mobile --*/
+@media only screen and (max-width: 480px) {
+.fl-col.fl-col-small.fl-node-56b8fa16eb1c5 .fl-module-content.fl-node-content {
+    margin: 20px 0 0 0;
+}
+.fl-post-feed-post.fl-post-feed-image-beside {
+  max-width:90% !important;
+}
+.fl-col-small {
+    max-width: 100% !important;
+}
+.fl-builder-pagination {
+  padding:0 !important;
+}
+/*---- End styling for news on mobile ----*/
+}
+
+/* Adds margin between boxes */
+.fl-col.fl-col-small.fl-node-56bcb5a90b388 .fl-col-content.fl-node-content,
+.fl-col.fl-col-small.fl-node-56bcb5a90b450 .fl-col-content.fl-node-content {
+    margin-bottom: 20px !important;
+}
+
+
+/* Centers image */
+.fl-slide-2 .fl-slide-text img {
+    margin: auto;
+}
+
+/* Sub-text on header slides */ 
+.slider-header-text {
+  letter-spacing: 2px; 
+  font-size: 20px; 
+  color: black !important; 
+  padding: 0 0 0 35px; 
+  margin: 0; 
+  font-weight: bold;
+}
+
+/* Takes off weird padding at the top of slide 3 (grand challenge slide) */
+.fl-content-slider-wrapper .fl-slide-3 .fl-slide-foreground.clearfix {
+  padding-top:0 !important;
+}
+
+/* Center text button */
+.fl-slide-cta-button {
+  text-align:center;
+}
+
+/* Centers 'Join us'... text */
+.fl-slide-1 .fl-slide-text p,
+.fl-slide-2 .fl-slide-text p,
+.fl-slide-3 .fl-slide-text p {
+  text-align:center;
+}
+
+/* Center image at top */
+.fl-slide-1 .fl-slide-text img,
+.fl-slide-2 .fl-slide-text img,
+.fl-slide-3 .fl-slide-text img {
+    margin: auto;
+}
+
+/* Color overlay on slide 
+.fl-slide-3 a.fl-slide-bg-link {
+    background: rgba(255,255,255,.5);
+}*/
+
+/* ----------------------- END FRONT PAGE STYLING ------------------*/
+
+/* --------------------------- HEADER STYLING ----------------------*/
+
+
+/*ADD MARGIN TO HEADER LOGO*/
+div#logo img {
+width:100% !important;
+max-width:100%;
+padding-top:0px;
+}
+
+/* LOGO AREA SIZE */
+div#logo {
+  max-width:10%;
+}
+
+/* Styling for 'Contact Us' link on hover - removes underline and changes red text to white */
+span.header-contact a:link {
+    text-decoration: none;
+    color: white;
+}
+
+/* Background color for header widgets */
+header#header, .header-widget {
+  background-color:#222222;
+}
+
+.header-widget {
+  padding-right:2%;
+}
+
+header#header {
+  padding-top:0;
+}
+
+.header-widget {
+  width:50% !important;
+}
+
+@media only screen and (max-width:768px){
+div#logo {
+  max-width:25% !important;
+  width:25%;
+}
+}
+
+@media only screen and (min-width:768px) and (max-width: 1200px) {
+div#logo {
+  max-width:17% !important;
+  width:17%;
+}
+.header-contact {
+  font-size:1.5em !important;
+}
+}
+
+@media only screen and (min-width:1200px) and (max-width: 1400px) {
+div#logo {
+  max-width:13% !important;
+  width:13% !important;
+}
+}
+
+/*----- Start Header Widget Styling -----*/ 
+
+/* Style for SU Presents: 
+  p.su-presents {
+    font-family: Open Sans;
+    font-size: 1em;
+    padding-left: 50px;
+    font-weight: bold;
+    text-align:center;
+  }*/
+
+/* Style for Contact Us */
+  span.header-contact {
+    font-family: Open Sans;
+    font-size: 1.7em;
+    padding-right: 20px;
+    font-weight: bold;
+  }
+
+/* SU Presents 
+  .left-header {
+    float:left;
+    max-width:49%;
+    margin-left:20px;
+  }*/
+
+/* Contact Us */
+
+  .right-header {
+    float:right;
+    max-width: 49%;
+    padding-top: 10px;
+    margin-right:20px;
+  }
+
+  @media only screen and (min-width: 1600px) {
+    .right-header {
+    padding-top: 20px;
+    }
+}
+
+/* Removed extra space at bottom of header */
+  header#header {
+    padding-bottom:0;
+  }
+
+/*----- End Header Widget Styling -----*/ 
+
+/* --------------------------- END HEADER STYLING ----------------------*/
+
+/*------------------ START NAV STYLE (INCL. CHALLENGE PAGES) -------------------*/
+
+/* Removes main navigation on specific XCS pages */
+@media only screen and (min-width: 768px) {
+.page-id-5 nav#navigation, 
+.page-id-8 nav#navigation, 
+.page-id-10 nav#navigation,
+.page-id-891 nav#navigation,
+.page-id-1015 nav#navigation,
+.page-id-12 nav#navigation,
+.page-id-14 nav#navigation,
+.page-id-16 nav#navigation,
+.page-id-881 nav#navigation,
+.page-id-1019 nav#navigation,
+.page-id-21 nav#navigation,
+.page-id-23 nav#navigation,
+.page-id-25 nav#navigation,
+.page-id-889 nav#navigation,
+.page-id-1017 nav#navigation {
+  display:none !important
+}
+}
+
+/* Main nav hover styling */
+@media only screen and (min-width: 768px) {
+li.menu-item:hover, 
+li.menu-item a:hover, 
+#navigation ul.nav > li:hover,
+#navigation ul.nav > li a:hover {
+    background-color: #303031 !important;
+    color: white !important;
+}
+}
+
+/* Sub menu style */
+li.menu-item {
+  text-align:left;
+}
+li.menu-item a {
+  text-decoration: none !important;
+}
+
+/* Makes menu items uppercase */
+ul#main-nav li {
+    text-transform: uppercase;
+}
+
+
+/*----------- Finance -----------*/
+
+div#finance-menu-container {
+  background-color:#93cf79 !important;
+
+}
+
+.page-id-5 div#nav-container,
+.page-id-8 div#nav-container,
+.page-id-10 div#nav-container,
+.page-id-891 div#nav-container,
+.page-id-1015 div#nav-container {
+  background-color:#93cf79 !important;
+}
+
+
+/* Changes selected page style 
+.page-id-5 ul.nav li.current_page_item a, 
+.page-id-5 ul.nav li.current_page_parent a, 
+.page-id-5 ul.nav li.current-menu-ancestor a, 
+.page-id-5 ul.nav li.current-cat a, 
+.page-id-5 ul.nav li.current-menu-item a,
+.page-id-8 ul.nav li.current_page_item a, 
+.page-id-8 ul.nav li.current_page_parent a, 
+.page-id-8 ul.nav li.current-menu-ancestor a, 
+.page-id-8 ul.nav li.current-cat a, 
+.page-id-8 ul.nav li.current-menu-item a,
+.page-id-10 ul.nav li.current_page_item a, 
+.page-id-10 ul.nav li.current_page_parent a, 
+.page-id-10 ul.nav li.current-menu-ancestor a, 
+.page-id-10 ul.nav li.current-cat a, 
+.page-id-10 ul.nav li.current-menu-item a,
+.page-id-891 ul.nav li.current_page_item a, 
+.page-id-891 ul.nav li.current_page_parent a, 
+.page-id-891 ul.nav li.current-menu-ancestor a, 
+.page-id-891 ul.nav li.current-cat a, 
+.page-id-891 ul.nav li.current-menu-item a,
+.page-id-1015 ul.nav li.current_page_item a, 
+.page-id-1015 ul.nav li.current_page_parent a, 
+.page-id-1015 ul.nav li.current-menu-ancestor a, 
+.page-id-1015 ul.nav li.current-cat a, 
+.page-id-1015 ul.nav li.current-menu-item a {
+  background: #3C9217;
+  color:white;
+}*/
+
+/* Hover style for main nav 
+.page-id-5 #navigation ul.nav > li a:hover, 
+.page-id-5 #navigation ul.nav > li:hover, 
+.page-id-5 #navigation ul.nav li ul, 
+.page-id-5 #navigation ul.cart li:hover a.cart-contents, 
+.page-id-5 #navigation ul.nav-search li:hover a.search-contents, 
+.page-id-5 #navigation ul.nav-search a.search-contents + ul, 
+.page-id-5 #navigation ul.cart a.cart-contents + ul, 
+.page-id-5 #navigation ul.nav li.current_page_item a, 
+.page-id-5 #navigation ul.nav li.current_page_parent a, 
+.page-id-5 #navigation ul.nav li.current-menu-ancestor a, 
+.page-id-5 #navigation ul.nav li.current-cat a, 
+.page-id-5 #navigation ul.nav li.current-menu-item a,
+.page-id-8 #navigation ul.nav > li a:hover, 
+.page-id-8 #navigation ul.nav > li:hover, 
+.page-id-8 #navigation ul.nav li ul, 
+.page-id-8 #navigation ul.cart li:hover a.cart-contents, 
+.page-id-8 #navigation ul.nav-search li:hover a.search-contents, 
+.page-id-8 #navigation ul.nav-search a.search-contents + ul, 
+.page-id-8 #navigation ul.cart a.cart-contents + ul, 
+.page-id-8 #navigation ul.nav li.current_page_item a, 
+.page-id-8 #navigation ul.nav li.current_page_parent a, 
+.page-id-8 #navigation ul.nav li.current-menu-ancestor a, 
+.page-id-8 #navigation ul.nav li.current-cat a, 
+.page-id-8 #navigation ul.nav li.current-menu-item a,
+.page-id-10 #navigation ul.nav > li a:hover, 
+.page-id-10 #navigation ul.nav > li:hover, 
+.page-id-10 #navigation ul.nav li ul, 
+.page-id-10 #navigation ul.cart li:hover a.cart-contents, 
+.page-id-10 #navigation ul.nav-search li:hover a.search-contents, 
+.page-id-10 #navigation ul.nav-search a.search-contents + ul, 
+.page-id-10 #navigation ul.cart a.cart-contents + ul, 
+.page-id-10 #navigation ul.nav li.current_page_item a, 
+.page-id-10 #navigation ul.nav li.current_page_parent a, 
+.page-id-10 #navigation ul.nav li.current-menu-ancestor a, 
+.page-id-10 #navigation ul.nav li.current-cat a, 
+.page-id-10 #navigation ul.nav li.current-menu-item a  {
+  background: #3C9217 !important;
+  color:white !important;
+}*/
+
+/* Removes all buttons but Apply, Details and Home on mobile (XFin) */
+@media only screen and (max-width: 768px) {
+  li#menu-item-239, 
+  li#menu-item-440,
+  li#menu-item-20 {
+    display:none !important;
+  }
+}
+
+/*--------- End Finance ---------*/
+
+
+/*-------- Manufacturing --------*/
+
+div#manufacturing-menu-container {
+  background-color:#f7941e !important;
+}
+
+.page-id-12 div#nav-container,
+.page-id-14 div#nav-container,
+.page-id-16 div#nav-container,
+.page-id-881 div#nav-container,
+.page-id-1019 div#nav-container {
+  background-color:#f7941e !important;
+}
+
+/* Changes selected page style 
+.page-id-12 ul.nav li.current_page_item a, 
+.page-id-12 ul.nav li.current_page_parent a, 
+.page-id-12 ul.nav li.current-menu-ancestor a, 
+.page-id-12 ul.nav li.current-cat a, 
+.page-id-12 ul.nav li.current-menu-item a,
+.page-id-14 ul.nav li.current_page_item a, 
+.page-id-14 ul.nav li.current_page_parent a, 
+.page-id-14 ul.nav li.current-menu-ancestor a, 
+.page-id-14 ul.nav li.current-cat a, 
+.page-id-14 ul.nav li.current-menu-item a,
+.page-id-16 ul.nav li.current_page_item a, 
+.page-id-16 ul.nav li.current_page_parent a, 
+.page-id-16 ul.nav li.current-menu-ancestor a, 
+.page-id-16 ul.nav li.current-cat a, 
+.page-id-16 ul.nav li.current-menu-item a,
+.page-id-881 ul.nav li.current_page_item a, 
+.page-id-881 ul.nav li.current_page_parent a, 
+.page-id-881 ul.nav li.current-menu-ancestor a, 
+.page-id-881 ul.nav li.current-cat a, 
+.page-id-881 ul.nav li.current-menu-item a,
+.page-id-1019 ul.nav li.current_page_item a, 
+.page-id-1019 ul.nav li.current_page_parent a, 
+.page-id-1019 ul.nav li.current-menu-ancestor a, 
+.page-id-1019 ul.nav li.current-cat a, 
+.page-id-1019 ul.nav li.current-menu-item a {
+  background: #F7C07E;
+  color:white;
+}*/
+
+/* Removes all buttons but Apply, Details and Home on mobile (XMan) */
+@media only screen and (max-width: 768px) {
+  li#menu-item-362, 
+  li#menu-item-28,
+  li#menu-item-243 {
+    display:none !important;
+  }
+}
+
+/*------ End Manufacturing ------*/
+
+/*------------ Grand Challenge ------------*/
+
+div#summit-menu-container {
+  background-color:#febe10 !important;
+}
+
+.page-id-21 div#nav-container,
+.page-id-23 div#nav-container,
+.page-id-25 div#nav-container,
+.page-id-889 div#nav-container,
+.page-id-1017 div#nav-container {
+  background-color:#febe10 !important;
+}
+
+/* Removes all buttons but Apply, Details and Home on mobile (Grand Challenge) */
+@media only screen and (max-width: 768px) {
+  li#menu-item-33, 
+  li#menu-item-300,
+  li#menu-item-441 {
+    display:none !important;
+  }
+}
+
+/*---------- End Grand Challenge ----------*/
+
+/*------------ [NAME OF SITE] ------------*/
+
+/* copy paste css for new site here */
+
+/*---------- End [NAME OF SITE] ----------*/
+
+/* Desktop styling for main nav - centers menu, etc. */
+@media only screen and (min-width: 768px) {
+#navigation {
+     position: relative;
+}
+#main-nav {
+     clear: left;
+     float: left;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     position: relative;
+     left: 50%;
+     text-align: center;
+}
+.nav li {
+     display: block;
+     float: left;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     position: relative;
+     right: 50%;
+}
+.nav li.hover, .nav li.hover {
+     position: relative;
+}
+.nav li ul li {
+     left: 0;
+}
+}
+
+/* Small devices styling for main nav */
+@media only screen and (max-width: 768px) {
+div#finance-menu-container ul#main-nav li,
+div#manufacturing-menu-container ul#main-nav li,
+div#summit-menu-container ul#main-nav li {
+    display: table-cell;
+}
+}
+
+/* Remove Navigation Menu for mobile on these pages */
+.page-id-5 h3.nav-toggle.icon,
+.page-id-8 h3.nav-toggle.icon,
+.page-id-10 h3.nav-toggle.icon,
+.page-id-891 h3.nav-toggle.icon,
+.page-id-1015 h3.nav-toggle.icon,
+.page-id-12 h3.nav-toggle.icon,
+.page-id-14 h3.nav-toggle.icon,
+.page-id-16 h3.nav-toggle.icon,
+.page-id-881 h3.nav-toggle.icon,
+.page-id-1019 h3.nav-toggle.icon,
+.page-id-21 h3.nav-toggle.icon,
+.page-id-23 h3.nav-toggle.icon,
+.page-id-25 h3.nav-toggle.icon,
+.page-id-889 h3.nav-toggle.icon,
+.page-id-1017 h3.nav-toggle.icon {
+  display:none;
+}
+
+/* Changes selected page style */ 
+ul.nav li.current_page_item a, 
+ul.nav li.current_page_parent a, 
+ul.nav li.current-menu-ancestor a, 
+ul.nav li.current-cat a, 
+ul.nav li.current-menu-item a,
+#navigation ul.nav li.current_page_item a,
+#navigation ul.nav li.current-menu-item a {
+  background-color: #222222 !important;
+  color:white !important;
+}
+
+/* Main nav hover styling */
+@media only screen and (min-width: 768px) {
+.page-id-5 li.menu-item:hover, 
+.page-id-5 li.menu-item a:hover,
+.page-id-5 #navigation ul.nav > li a:hover, 
+.page-id-8 li.menu-item:hover, 
+.page-id-8 li.menu-item a:hover,
+.page-id-8 #navigation ul.nav > li a:hover,
+.page-id-10 li.menu-item:hover, 
+.page-id-10 li.menu-item a:hover,
+.page-id-10 #navigation ul.nav > li a:hover,
+.page-id-891 li.menu-item:hover, 
+.page-id-891 li.menu-item a:hover,
+.page-id-891 #navigation ul.nav > li a:hover,
+.page-id-1015 li.menu-item:hover, 
+.page-id-1015 li.menu-item a:hover,
+.page-id-1015 #navigation ul.nav > li a:hover,
+.page-id-12 li.menu-item:hover, 
+.page-id-12 li.menu-item a:hover,
+.page-id-12 #navigation ul.nav > li a:hover, 
+.page-id-14 li.menu-item:hover, 
+.page-id-14 li.menu-item a:hover,
+.page-id-14 #navigation ul.nav > li a:hover,
+.page-id-16 li.menu-item:hover, 
+.page-id-16 li.menu-item a:hover,
+.page-id-16 #navigation ul.nav > li a:hover,
+.page-id-881 li.menu-item:hover, 
+.page-id-881 li.menu-item a:hover,
+.page-id-881 #navigation ul.nav > li a:hover,
+.page-id-1019 li.menu-item:hover, 
+.page-id-1019 li.menu-item a:hover,
+.page-id-1019 #navigation ul.nav > li a:hover,
+.page-id-21 li.menu-item:hover, 
+.page-id-21 li.menu-item a:hover,
+.page-id-21 #navigation ul.nav > li a:hover, 
+.page-id-23 li.menu-item:hover, 
+.page-id-23 li.menu-item a:hover,
+.page-id-23 #navigation ul.nav > li a:hover,
+.page-id-25 li.menu-item:hover, 
+.page-id-25 li.menu-item a:hover,
+.page-id-25 #navigation ul.nav > li a:hover,
+.page-id-889 li.menu-item:hover, 
+.page-id-889 li.menu-item a:hover,
+.page-id-889 #navigation ul.nav > li a:hover,
+.page-id-1017 li.menu-item:hover, 
+.page-id-1017 li.menu-item a:hover,
+.page-id-1017 #navigation ul.nav > li a:hover {
+    background-color: #222222 !important;
+    color: white !important;
+}
+}
+
+/* Removes side padding for mobile on these pages */
+@media only screen and (max-width: 480px) {
+.page-id-5 #nav-container, 
+.page-id-8 #nav-container,
+.page-id-10 #nav-container,
+.page-id-891 #nav-container,
+.page-id-1015 #nav-container,
+.page-id-12 #nav-container, 
+.page-id-14 #nav-container,
+.page-id-16 #nav-container,
+.page-id-881 #nav-container,
+.page-id-1019 #nav-container,
+.page-id-21 #nav-container, 
+.page-id-23 #nav-container,
+.page-id-25 #nav-container,
+.page-id-889 #nav-container,
+.page-id-1017 #nav-container {
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
+/* Style for mobile nav */
+@media only screen and (max-width: 480px) {
+/*.page-id-5 ul.nav li a, 
+.page-id-8 ul.nav li a,
+.page-id-10 ul.nav li a,
+.page-id-891 ul.nav li a,
+.page-id-1015 ul.nav li a,
+.page-id-12 ul.nav li a, 
+.page-id-14 ul.nav li a,
+.page-id-16 ul.nav li a,
+.page-id-881 ul.nav li a,
+.page-id-1019 ul.nav li a,
+.page-id-21 ul.nav li a, 
+.page-id-23 ul.nav li a,
+.page-id-25 ul.nav li a,
+.page-id-889 ul.nav li a,
+.page-id-1017 ul.nav li a {
+    font-size: 13px !important;
+  }*/
+ul.nav li#menu-item-746 a,
+ul.nav li#menu-item-748 a {
+    line-height:100% !important;
+    display: inline-block;
+    font-size:13px;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+div#wpadminbar {
+  display:none;
+}
+div#manufacturing-menu-container ul.nav li.current-menu-item a,
+div#manufacturing-menu-container ul.nav li.current_page_item a,
+div#finance-menu-container ul.nav li.current-menu-item a,
+div#finance-menu-container ul.nav ul.nav li.current_page_item a {
+    padding: 1em !important;
+}
+}
+
+
+/*--------------------- END NAV STYLE (INCL. CHALLENGE PAGES) ---------------------*/
+
+/* ----------------------------- SLIDER STYLING ------------------------*/
+
+/* Front Page Slider Excerpt #5 (The Best Way to...) [3 lines] */
+.fl-content-slider-wrapper .fl-slide-3 .fl-slide-foreground.clearfix,
+.fl-content-slider-wrapper .fl-slide-4 .fl-slide-foreground.clearfix,
+.fl-content-slider-wrapper .fl-slide-0 .fl-slide-foreground.clearfix {
+    width: 100%;
+    float: none;
+    margin: auto;
+    line-height: 250%;
+    padding-top: 1em;
+}
+
+/* -------------------------- END SLIDER STYLING -----------------------*/
+
+
+/*--------------------- STYLING FOR PRICING PAGE -----------------------*/
+
+/*HIGHLIGHT ACTIVE PRICE COLUMN
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-1 {
+box-shadow: 0 3px 15px 5px #222 !important;
+}
+
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-1 {
+box-shadow: 0 3px 15px 5px #222 !important;
+}*/
+
+/*SOLD OUT STYLING FOR PRICING PAGE
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-0 {
+    -webkit-filter: grayscale(80%) !important;
+    -moz-filter:    grayscale(80%) !important;
+    -ms-filter:     grayscale(80%) !important;
+    -o-filter:      grayscale(80%) !important;
+    filter: gray !important;
+    opacity:.5;
+}
+
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-0 {
+    -webkit-filter: grayscale(80%) !important;
+    -moz-filter:    grayscale(80%) !important;
+    -ms-filter:     grayscale(80%) !important;
+    -o-filter:      grayscale(80%) !important;
+    filter: gray !important;
+    opacity:.5;
+}*/
+
+/* REMOVES BUTTON AT BOTTOM OF PRICING TABLE 
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-0 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-0 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-2 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-2 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-3 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-3 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-54e78e42e5e0d .fl-pricing-table-column-4 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}
+.fl-builder-content .fl-node-556f3f19cca19 .fl-pricing-table-column-4 .fl-pricing-table-inner-wrap .fl-button {
+  display:none;
+}*/
+
+/*-----------------------END OF STYLING FOR PRICING PAGE-----------------------*/
+
+
+/* DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+@media only screen and (min-width: 768px) {
+  
+/* Desktop styles go below this line */
+
+
+
+}

@@ -1,0 +1,145 @@
+/* CUSTOM CSS */
+
+
+/*--------------------- START BOBCAT CSS ---------------------*/
+
+
+/* Hancock Dens image link */
+.demo-img {
+    display: block;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    width: 113px;
+    height: 54px;
+    overflow: hidden;
+    background: no-repeat center center;
+    background-size: 113px 54px;
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+/* Hancock Dens image */
+.demo-img > img {
+    border-radius: 5px;
+    width: 113px;
+    height: 54px;
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+
+h5#bobcat-image-text {
+	padding-top:10px;
+}
+
+.post-id-4 #sidebar {
+	border:none;
+}
+
+.post-4 div#sidebar {
+	display:none;
+}
+
+
+
+
+
+
+/*---------------------- END BOBCAT CSS ----------------------*/
+
+
+/* Style of all bobcat images on Hancock Dens page */
+.bobcat-image-columns {
+    width: 25%;
+    float:left;
+    padding:5px;
+    margin-right:10px;
+}
+
+/* Bobcat image hover style - makes zoom in 
+img.bobcat-image:hover {
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.2);
+}*/ 
+
+/* Bobcat image style 
+img.bobcat-image {
+    width:25%;
+    float:left;
+    padding:5px;
+    margin-right:10px;
+}*/
+
+/* Bobcat image hover style 
+img.bobcat-image:hover {
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.2);
+}*/
+
+/* Bobcat Den page columns */
+.bobcat-image-columns {
+    width:100%;
+    float:left;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+/*@media screen and (min-width: 480px) {
+div#bobcat-image:hover {
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+    background-color: rgba(78, 190, 255, 0.37);
+}
+}*/
+
+/* Style of hover */
+img.bobcat-image:hover {
+    opacity: 1;
+}
+
+/* Bobcat image style */
+img.bobcat-image {
+    border-radius: 2px;
+    width: 250px;
+    height: 175px;
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+/* a link wrapping image style */
+.bobcat-img-wrap {
+    display: block;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    width: 250px;
+    height: 175px;
+    overflow: hidden;
+    background: no-repeat center center;
+    background-size: 250px 175px;
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+
+/*---------------------- START ANNA CSS ----------------------*/
+
+
+/*----------------------- END ANNA CSS -----------------------*/

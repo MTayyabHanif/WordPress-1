@@ -1,0 +1,606 @@
+/* MAIN STYLESHEET */
+
+h1,h2,h3 {
+	font-family: 'Montserrat Alternates', 'Hammersmith One', sans-serif, Helvetica, Verdana, Arial;
+	margin:0;
+ 	color: #222;
+  	font-weight: bold;
+  	line-height: 1.2em;
+}
+
+h1 {
+  font-size: 2em; 
+}
+
+h2 {
+  font-size: 1.8em; 
+}
+
+h3 {
+  font-size: 1.6em; 
+}
+
+h4 {
+  font-size: 1.2em; 
+  font-style:italic;
+}
+
+h5 {
+  font-size: 1em; 
+}
+
+h6 {
+  font-size: 0.8em; 
+}
+
+
+
+h4,h5,h6,p,span,div,a {
+	font-family: 'Chivo', 'Signika', 'Exo 2', Helvetica, Verdana, Arial, sans-serif;
+}
+
+/* Google Font options:
+font-family: 'Exo 2', sans-serif;
+font-family: 'Signika', sans-serif;
+font-family: 'Istok Web', sans-serif;
+font-family: 'Hammersmith One', sans-serif;
+font-family: 'Chivo', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+*/
+
+
+/*-------------------------- START HEADER STYLE --------------------------*/
+
+
+/* Header style */ 
+#header {
+    background: 
+    linear-gradient(rgba(45, 202, 173, 0.45), rgba(0, 161, 255, 0.45) ), 
+    url("http://www.trackingfelids.com/wp-content/uploads/2016/03/bobcat-1.jpg");
+    background-size: cover;
+    padding: 50px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+/* Header image */
+#header img  {
+  margin: 7px 9px 0; 
+  height: 192px; 
+  width: 740px; 
+}
+
+/* Header text */
+header#header a {
+    font-size: 60px;
+    text-decoration: none;
+    color: black;
+    font-weight:bold;
+}
+
+/* Header text hover */ 
+header#header a:hover {
+    color: #18773B;
+}
+
+.title { 
+	font-size: 11pt; 
+	font-family: verdana; 
+	font-weight: bold; 
+}
+
+/*--------------------------- END HEADER STYLE ---------------------------*/
+
+/*--------------------------- START SIDEBAR STYLE ---------------------------*/
+
+/* Sidebar links style */
+#sidebar a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Sidebar links style on hover */
+#sidebar a:hover {
+    color: blue;
+}
+
+/* Sidebar styling */
+#sidebar { 
+	width: 29.5%; 
+	border: black solid 5px;
+	float: right; 
+	padding:20px 30px 30px 30px;
+	margin-top:20px;
+	margin-right:20px;
+}
+
+/* Overflow:
+The overflow property specifies what happens if content overflows an element's box. */
+div#main-sidebar-container {
+	overflow:hidden;
+}
+
+/* Mobile styling on sidebar */
+@media only screen and (max-width:768px) {
+	/* Remove sidebar on mobile */
+	div#sidebar {
+		display:none;
+	}
+}
+
+/* Sidebar hover style */
+div#sidebar:hover {
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+    background-color: rgba(125, 207, 255, 0.64);
+}
+
+/*--------------------------- END SIDEBAR STYLE ---------------------------*/
+
+/*--------------------------- START BODY STYLE ---------------------------*/
+/* Full body styling */
+#wrapper { 
+	display: block; 
+	border: 1px #000000 solid; 
+	width:100%; 
+	margin:0px auto; 
+}
+
+/* Header style */
+section#main {
+    float: left;
+    width:65%;
+    padding-bottom:20px;
+}
+
+/* Header text style */
+header h1.title.entry-title {
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+/* Content style - leaves room for sidebar */
+#content { 
+	padding:20px;
+	/*float:left; */
+}
+
+/* Removing margin around body */
+body { 
+	margin:0px;
+}
+
+/* Main section styling on medium devices */
+@media only screen and (min-width:768px) and (max-width:1250px) {
+	/* Makes main section appear full screen*/
+	section#main {
+		width:95%;
+	}
+}
+
+
+/* Main section form page styling on mobile */
+@media only screen and (max-width:768px) {
+	/* Makes main section appear full screen on mobile*/
+	section#main {
+		width:95%;
+	}
+}
+
+
+/*---------------------------- END BODY STYLE ----------------------------*/
+/*------------------------ START NAVIGATION STYLE ------------------------*/
+
+/* Navigation with a black background */
+nav#menu, nav#bobcat-menu, nav#lynx-menu {
+	background-color:black;
+}
+
+
+/* The * selector selects all elements */
+* {
+  padding: 0;
+  margin: 0;
+ 
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Overall nav style */
+nav {
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
+
+/* Navigation list */
+nav ul {
+  list-style: none;
+	overflow: hidden;
+}
+
+/* Navigation hyperlinked list items */
+nav li a {
+	background-color: black;
+	border-right: 1px solid #ccc;
+	color: white;
+  	position: relative;
+	display: block;
+	float: left;
+	font: 400 13px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 12.5%;
+	height:50px;
+}
+
+/* Sub menu list */
+nav ul ul {
+	position: absolute;
+  left: -99999px;
+  /*display:none;*/
+ }
+
+/* Selects all ul elements that are immediate children of the navigation list items (on hover) */
+/* > = Child selector */
+/* @url = http://www.w3schools.com/css/css_combinators.asp */
+nav ul li:hover > ul {
+	display: block;
+	position: relative;
+	left: 0px;
+	float: none;
+	clear: left;
+	height:50px;
+}
+
+
+/* Styling for hyperlinks in main nav */
+nav li a {
+	background: #000000;
+	border-right: 1px solid #ccc;
+	color: #ffffff;
+	display: block;
+	float: left;
+	font: 400 13px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 12.5%;
+ 
+/*Transitions*/
+	-webkit-transition: background .3s ease-in-out;
+	   -moz-transition: background .3s ease-in-out;
+	     -o-transition: background .3s ease-in-out;
+	    -ms-transition: background .3s ease-in-out;
+	        transition: background .3s ease-in-out;
+			
+			
+	-webkit-transition: border-bottom .3s ease-in-out;
+	   -moz-transition: border-bottom .3s ease-in-out;
+	     -o-transition: border-bottom .3s ease-in-out;
+	    -ms-transition: border-bottom .3s ease-in-out;
+	        transition: border-bottom .3s ease-in-out;
+			
+	-webkit-transition: box-shadow .3s ease-in-out;
+	   -moz-transition: box-shadow .3s ease-in-out;
+	     -o-transition: box-shadow .3s ease-in-out;
+	    -ms-transition: box-shadow .3s ease-in-out;
+	        transition: box-shadow .3s ease-in-out;
+}
+ 
+/* Start Hover/Active Styling*/
+nav li a:hover, 
+nav li a:active {
+	background: #ffffff;
+	color: #259359;
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px -5px #259359;
+}
+
+/* Old Border:
+	border-bottom: 5px solid;
+	border-bottom-color: #991b1e;
+*/
+
+/* Style for the last child of the nav list elements */
+nav li:last-child a {
+	border: none;
+}
+/* Style for the last child of the nav list elements on hover and active */
+nav li:last-child a:hover,
+nav li:last-child a:active {
+	background: #ffffff;
+	color: #259359;
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px -5px #259359;
+}
+
+/* End Hover/Active Styling */
+
+/* Start Media Queries*/
+@media only screen and (max-width : 1220px),
+only screen and (max-device-width : 1220px){
+	/* Hyperlinks in main nav */
+	nav li a {
+		font: 400 10px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	}
+ /*
+	nav small {
+		font: 100 10px/1 Helvetica, Verdana, Arial, sans-serif;
+		
+	}*/
+
+/* HOVER of hyperlinked list items in navigation */
+nav li a:hover {
+	/*background: #090;*/
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px -3px #259359;
+	/*border-bottom: 3px solid;*/
+}	
+
+/* HOVER of hyperlinked list items in navigation (last child of its parent) */
+nav li:last-child a:hover {
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px -3px #259359;
+	/*border-bottom: 3px solid;*/
+}	
+
+/* ACTIVE (selected) navigation list items that are hyperlinked */
+nav li a:active {
+	background: #CCC;
+	-webkit-box-shadow: inset 0px -3px #259359;
+	/*border-bottom: 5px solid;
+	border-bottom-color: #991b1e;*/
+}
+
+/* ACTIVE (selected) navigation list items that are hyperlinked (last child of its parent) */
+nav li:last-child a:active {
+	background: #ccc;
+	color: #259359;
+	font-weight: bold;
+	/*border-bottom: 5px solid;
+	border-bottom-color: #991b1e;*/
+	-webkit-box-shadow: inset 0px -3px #259359;
+	}	
+
+}
+
+/* Style of max width 930px */
+@media only screen and (max-width : 930px),
+only screen and (max-device-width : 930px){
+	/* Hyperlinks in main nav */
+	nav li a {
+		width: 25%;
+		border-bottom: 1px solid #fff;
+		font: 400 11px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	}
+ 
+ 	/* Every hyperlinked list element that is the 4th or last child of its parent */
+	nav li:last-child a, nav li:nth-child(4) a {
+		border-right: none;
+	}
+	/* Every hyperlinked list element that is the 5th, 6th, 7th or 8th child of its parent */
+	nav li:nth-child(5) a, nav li:nth-child(6) a, nav li:nth-child(7) a, nav li:nth-child(8) a {
+		border-bottom: none;
+	}
+	
+	/*nav small {
+		display: none;
+	}*/
+	
+	nav {
+		margin: 0;
+	}
+}
+
+/* Style for max width 580px */
+@media only screen and (max-width : 580px),
+only screen and (max-device-width : 580px){
+	/* Hyperlinks in main nav */
+	nav li a {
+		width: 50%;
+		font: 400 12px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+	/* Match child elements whose index is even */
+	nav li:nth-child(even) a {
+		border-right: none;
+	}
+	/* Every hyperlinked list element that is the 5th or 6th child of its parent */
+	nav li:nth-child(5) a, nav li:nth-child(6) a {
+		border-bottom: 1px solid #fff;
+	}
+	
+}
+ 
+/* Style for max width 320 px*/
+@media only screen and (max-width : 320px),
+only screen and (max-device-width : 320px){
+	/* Hyperlinks in main nav */
+	nav li a {
+		font: 400 16px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	}
+	/* Make navigation full width */
+	nav {
+		width: 100%;
+	}
+}
+
+/* End Media Queries */
+
+
+
+/*------------------------- END NAVIGATION STYLE -------------------------*/
+
+/*-------------------------- START FOOTER STYLE --------------------------*/
+
+footer.col-full { 
+	border: 2px #a2a2a2 solid; 
+}
+
+/* Column left style */
+footer#footer div.col-left {
+	float:left;
+	width:70%;
+	height:150px;
+	border-right: white solid 1px;
+	padding:20px;
+}
+
+/* Style for text in left column */
+div.col-left p {
+	text-align:center;
+}
+
+/* Column right style */
+footer#footer div.col-right {
+	float:right;
+	width:25%;
+	height:150px;
+	padding:20px;
+}
+
+/* Style for text in right column */
+div.col-right p {
+	font-style:italic;
+}
+
+/* Footer height */
+div#footer-full {
+	height:150px;
+}
+
+/* Footer style */
+footer#footer {
+	background-color:black;
+	color:white;
+}
+
+
+/*--------------------------- END FOOTER STYLE ---------------------------*/
+
+/*------------------------- START LYNX PAGE STYLE -------------------------*/
+
+
+
+
+/*-------------------------- END LYNX PAGE STYLE --------------------------*/
+
+/*------------------------- START LYNX FORM STYLE -------------------------*/
+
+/* Button style */
+input[type="submit"] {
+	float:left;
+	width: 90%;
+	border: #444444 solid 3px;
+	cursor:pointer;
+	background: linear-gradient(rgba(45, 202, 173, 0.45), rgba(0, 161, 255, 0.45) );
+	color:black;
+	font-size:18px;
+	padding-top:8px;
+	padding-bottom:8px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-top:-4px;
+	font-weight:900;
+	font-family: 'Chivo', 'Signika', 'Exo 2', Helvetica, Verdana, Arial, sans-serif;
+	margin:20px 0 20px 0;
+}
+
+/* Field spacing */
+p.form-fields {
+	padding:10px 0;
+}
+
+/* Input fields style */
+input[type="text"] {
+    width: 30em;
+    border-radius: 3px;
+}
+
+/* Canadian lynx overall form style */
+.location-form {
+	width:50%;
+	padding:0 20px 20px 20px;
+	float:right;
+	border: 2px black solid;
+}
+
+@media only screen and (min-width:768px) and (max-width : 1250px) {
+.location-form {
+    width:55%;
+}
+}
+
+/* Canadian lynx form page text */
+.form-text {
+	width: 45%;
+	float: left;
+	margin:20px;
+}
+
+/* Don't display form on Canadian Lynx form page */
+.post-48 h1.title.entry-title {
+	display:none !important;
+}
+
+h1.lynx-header {
+	padding-bottom:20px;
+	margin-left:20px;
+}
+
+/* Lynx form page styling on mobile */
+@media only screen and (min-width:768px) and (max-width:1250px) {
+		input[type="text"] {
+		width: 20em;
+		border-radius: 3px;
+	}
+	.form-text {
+		width: 30%;
+	}
+	.location-form {
+		width:45%;
+	}
+}
+
+/* Lynx form page styling on mobile */
+@media only screen and (max-width:768px) {
+	/* Makes location form stretch across screen on mobile*/
+	.location-form {
+		width:100%;
+		float:none;
+		margin:20px;
+	}
+	/* Makes text appear across screen on mobile */
+	.form-text {
+		width: 100%;
+		float:none;
+		margin-left:20px;
+		margin-right:20px;
+	}
+	h1.lynx-header {
+		text-align:center;
+	}
+	input[type="text"] {
+		width: 20em;
+		border-radius: 3px;
+	}
+
+}
+
+/*-------------------------- END LYNX FORM STYLE --------------------------*/
+
+
+#delimiter { 
+	clear: both; 
+}
+
+
+
+
+
